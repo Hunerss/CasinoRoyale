@@ -4,10 +4,11 @@
              xmlns:local="clr-namespace:CasinoRoyale"
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
+        <!--Fundamental text style-->
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Bodoni MT"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        
+        
     </Application.Resources>
 </Application>
