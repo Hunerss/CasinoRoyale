@@ -11,7 +11,8 @@ namespace CasinoRoyale.Classes
     {
         void CheckIntegrity()
         {
-            if (true)
+            Boolean check = true;
+            if (check)
                 Console.WriteLine("CheckIntegrity - Success log - Everything is fine.");
             else
                 Console.WriteLine("CheckIntegrity - Error log - Something isn't here.");
