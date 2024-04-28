@@ -1,0 +1,19 @@
+blackjack order
+    ai gives cards 
+    user collects cards
+    ai time
+        shows base cards and add it to score
+        while(true)
+            if(Probability())
+                addcard
+            else
+                break
+        CheckWin()
+
+
+To Do lista
+    - Napisz licencjê
+    - Napisz bajkê o kasynie
+    - Przygotuj style przycisków
+    - Przygotuj main menu
+    - Przygotuj tablicê wyników

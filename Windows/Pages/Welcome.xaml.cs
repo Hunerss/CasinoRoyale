@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CasinoRoyale.classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,9 @@ namespace CasinoRoyale.Windows.Pages
         {
             window = win;
             InitializeComponent();
+
+            Card s1 = new(1, "Spades");
+            Console.WriteLine(s1.Value);
         }
     }
 }
