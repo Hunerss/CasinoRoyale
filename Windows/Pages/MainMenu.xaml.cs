@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CasinoRoyale.windows.pages;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CasinoRoyale.Windows.Pages
 {
@@ -25,6 +15,49 @@ namespace CasinoRoyale.Windows.Pages
         {
             window = win;
             InitializeComponent();
+        }
+
+        private void Navigation(object sender, RoutedEventArgs e)
+        {
+            int buttonNumber = Convert.ToInt32(((Button)sender).Name[4].ToString());
+            Console.WriteLine("MainMenu - Navigation - Start log - Button number: " + buttonNumber);
+            switch (buttonNumber)
+            {
+                case 0:
+                    window.frame.NavigationService.Navigate(new Poker(window));
+                    break;
+                case 1:
+                    window.frame.NavigationService.Navigate(new Blackjack(window));
+                    break;
+                case 2:
+                    window.frame.NavigationService.Navigate(new Roulette(window));
+                    break;
+                case 3:
+                    window.frame.NavigationService.Navigate(new Slot(window));
+                    break;
+                case 4:
+                    window.frame.NavigationService.Navigate(new Scores(window));
+                    break;
+                case 5:
+                    window.frame.NavigationService.Navigate(new Bank(window));
+                    break;
+                case 6:
+                    window.frame.NavigationService.Navigate(new Licences(window));
+                    break;
+                case 7:
+                    window.frame.NavigationService.Navigate(new AboutUs(window));
+                    break;
+                case 8:
+                    window.frame.NavigationService.Navigate(new Settings(window));
+                    break;
+                case 9:
+                    Window.GetWindow(this).Close();
+                    Application.Current.Shutdown();
+                    break;
+                default:
+                    Console.WriteLine("MainMenu - Navigation - Error log - Button number overflow");
+                    break;
+            }
         }
     }
 }

@@ -19,7 +19,6 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Welcome to Casino Royale</TextBlock>
-            <Button Grid.Row="2">Out</Button>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -31,11 +30,13 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="0">Poker</Button>
-                    <Button Grid.Row="1">Blackjack</Button>
-                    <Button Grid.Row="2">Roulette</Button>
-                    <Button Grid.Row="3">Slot Machine</Button>
+                    <Button Name="btn_0" Grid.Row="0" Click="Navigation">Poker</Button>
+                    <Button Name="btn_1" Grid.Row="1" Click="Navigation">Blackjack</Button>
+                    <Button Name="btn_2" Grid.Row="2" Click="Navigation">Roulette</Button>
+                    <Button Name="btn_3" Grid.Row="3" Click="Navigation">Slot Machine</Button>
+                    <Button Name="btn_4" Grid.Row="4" Click="Navigation">Scores</Button>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
@@ -43,11 +44,13 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="0">Scores</Button>
-                    <Button Grid.Row="1">Bank</Button>
-                    <Button Grid.Row="2">Licences</Button>
-                    <Button Grid.Row="3">About us</Button>
+                    <Button Name="btn_5" Grid.Row="0" Click="Navigation">Bank</Button>
+                    <Button Name="btn_6" Grid.Row="1" Click="Navigation">Licences</Button>
+                    <Button Name="btn_7" Grid.Row="2" Click="Navigation">About us</Button>
+                    <Button Name="btn_8" Grid.Row="3" Click="Navigation">Settings</Button>
+                    <Button Name="btn_9" Grid.Row="4" Click="Navigation">Out</Button>
                 </Grid>
             </Grid>
         </Grid>

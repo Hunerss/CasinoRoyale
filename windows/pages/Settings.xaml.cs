@@ -1,5 +1,4 @@
-﻿using CasinoRoyale.classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,25 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CasinoRoyale.Windows.Pages
+namespace CasinoRoyale.windows.pages
 {
     /// <summary>
-    /// Logika interakcji dla klasy Welcome.xaml
+    /// Logika interakcji dla klasy Settings.xaml
     /// </summary>
-    public partial class Welcome : UserControl
+    public partial class Settings : UserControl
     {
         private static MainWindow window;
-        public Welcome(MainWindow win)
+        public Settings(MainWindow win)
         {
             window = win;
             InitializeComponent();
-
-            
-        }
-
-        private void Navigation(object sender, RoutedEventArgs e)
-        {
-            window.frame.NavigationService.Navigate(new MainMenu(window));
         }
     }
 }
