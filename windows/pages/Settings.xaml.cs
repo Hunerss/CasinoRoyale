@@ -21,9 +21,9 @@ namespace CasinoRoyale.windows.pages
     public partial class Settings : UserControl
     {
         private static MainWindow window;
-        public Settings(MainWindow win)
+        public Settings()
         {
-            window = win;
+            window = (MainWindow)Window.GetWindow(this);
             InitializeComponent();
         }
     }

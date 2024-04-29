@@ -11,9 +11,9 @@ namespace CasinoRoyale.Windows.Pages
     public partial class MainMenu : UserControl
     {
         private static MainWindow window;
-        public MainMenu(MainWindow win)
+        public MainMenu()
         {
-            window = win;
+            window = (MainWindow)Window.GetWindow(this);
             InitializeComponent();
         }
 
@@ -24,31 +24,31 @@ namespace CasinoRoyale.Windows.Pages
             switch (buttonNumber)
             {
                 case 0:
-                    window.frame.NavigationService.Navigate(new Poker(window));
+                    window.frame.NavigationService.Navigate(new Poker());
                     break;
                 case 1:
-                    window.frame.NavigationService.Navigate(new Blackjack(window));
+                    window.frame.NavigationService.Navigate(new Blackjack());
                     break;
                 case 2:
-                    window.frame.NavigationService.Navigate(new Roulette(window));
+                    window.frame.NavigationService.Navigate(new Roulette());
                     break;
                 case 3:
-                    window.frame.NavigationService.Navigate(new Slot(window));
+                    window.frame.NavigationService.Navigate(new Slot());
                     break;
                 case 4:
-                    window.frame.NavigationService.Navigate(new Scores(window));
+                    window.frame.NavigationService.Navigate(new Scores());
                     break;
                 case 5:
-                    window.frame.NavigationService.Navigate(new Bank(window));
+                    window.frame.NavigationService.Navigate(new Bank());
                     break;
                 case 6:
-                    window.frame.NavigationService.Navigate(new Licences(window));
+                    window.frame.NavigationService.Navigate(new Licences());
                     break;
                 case 7:
-                    window.frame.NavigationService.Navigate(new AboutUs(window));
+                    window.frame.NavigationService.Navigate(new AboutUs());
                     break;
                 case 8:
-                    window.frame.NavigationService.Navigate(new Settings(window));
+                    window.frame.NavigationService.Navigate(new Settings());
                     break;
                 case 9:
                     Window.GetWindow(this).Close();

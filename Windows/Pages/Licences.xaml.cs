@@ -21,9 +21,9 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Licences : UserControl
     {
         private static MainWindow window;
-        public Licences(MainWindow win)
+        public Licences()
         {
-            window = win;
+            window = (MainWindow)Window.GetWindow(this);
             InitializeComponent();
         }
     }

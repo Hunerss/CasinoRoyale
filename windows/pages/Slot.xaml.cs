@@ -21,9 +21,9 @@ namespace CasinoRoyale.windows.pages
     public partial class Slot : UserControl
     {
         private static MainWindow window;
-        public Slot(MainWindow win)
+        public Slot()
         {
-            window = win;
+            window = (MainWindow)Window.GetWindow(this);
             InitializeComponent();
         }
     }
