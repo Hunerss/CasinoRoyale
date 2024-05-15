@@ -23,21 +23,15 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Welcome : UserControl
     {
         private static MainWindow window;
-        public Welcome()
+        public Welcome(MainWindow win)
         {
-            window = (MainWindow)Window.GetWindow(this);
+            window = win;
             InitializeComponent();
         }
 
         private void Navigation(object sender, RoutedEventArgs e)
         {
             window.frame.NavigationService.Navigate(new MainMenu());
-        }
-
-        private void Navigation(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("Welcome - success log - Moving to Main Menu");
-            window.frame.NavigationService.Navigate(new MainMenu(window));
         }
     }
 }

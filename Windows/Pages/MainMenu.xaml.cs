@@ -12,9 +12,9 @@ namespace CasinoRoyale.Windows.Pages
     public partial class MainMenu : UserControl
     {
         private static MainWindow window;
-        public MainMenu()
+        public MainMenu(MainWindow win)
         {
-            window = (MainWindow)Window.GetWindow(this);
+            window = win;
             InitializeComponent();
         }
 

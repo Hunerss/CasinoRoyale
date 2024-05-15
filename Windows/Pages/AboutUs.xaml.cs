@@ -21,9 +21,9 @@ namespace CasinoRoyale.Windows.Pages
     public partial class AboutUs : UserControl
     {
         private static MainWindow window;
-        public AboutUs()
+        public AboutUs(MainWindow win)
         {
-            window = (MainWindow)Window.GetWindow(this);
+            window = win;
             InitializeComponent();
         }
 

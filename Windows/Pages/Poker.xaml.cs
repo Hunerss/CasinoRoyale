@@ -21,9 +21,9 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Poker : UserControl
     {
         private static MainWindow window;
-        public Poker()
+        public Poker(MainWindow win)
         {
-            window = (MainWindow)Window.GetWindow(this);
+            window = win;
             InitializeComponent();
         }
 

@@ -18,7 +18,7 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Welcome to Casino Royale</TextBlock>
+            <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Bank</TextBlock>
             <Button Name="btn_0" Grid.Row="2" Click="Navigation">Out</Button>
         </Grid>
     </Grid>
