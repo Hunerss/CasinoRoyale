@@ -10,7 +10,7 @@
         <StackPanel HorizontalAlignment="Center">
             <TextBlock FontSize="50px" HorizontalAlignment="Center">Welcome to Casino Royale</TextBlock>
             <TextBlock TextWrapping="Wrap" TextAlignment="Center" FontSize="24px">World of endless entertainment and excitement. In our exclusive casino, endless fun awaits you, filled with thrilling games, luxurious amenities, and unforgettable experiences. Place your bets at our elegant blackjack, roulette, and poker tables. Try your luck at the slot machines, where huge wins await. Join our exceptional community of players today and dive into the world of Casino Royale, where every moment is extraordinary.Wishing you unforgettable moments and massive wins!</TextBlock>
-            <Button Width="150px" FontSize="20px" Margin="0 20 0 0">Go to Cassino</Button>
+            <Button Width="150px" FontSize="20px" Margin="0 20 0 0" Click="Navigation">Go to Cassino</Button>
             <!--Ostyluj przyciski-->
         </StackPanel>
         

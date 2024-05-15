@@ -1,4 +1,5 @@
 ﻿using CasinoRoyale.classes;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,12 @@ namespace CasinoRoyale.Windows.Pages
 
             Card s1 = new(1, "Spades");
             Console.WriteLine(s1.Value);
+        }
+
+        private void Navigation(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Welcome - success log - Moving to Main Menu");
+            window.frame.NavigationService.Navigate(new MainMenu(window));
         }
     }
 }
