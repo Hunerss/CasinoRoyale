@@ -31,6 +31,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Button IsEnabled="False" Name="btn_1" Grid.Row="0" Click="Navigation">Poker</Button>
                     <Button Name="btn_2" Grid.Row="1" Click="Navigation">Blackjack</Button>
@@ -39,6 +40,7 @@
                 </Grid>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>

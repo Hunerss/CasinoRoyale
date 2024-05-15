@@ -13,27 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CasinoRoyale.Windows.Pages
+namespace CasinoRoyale.windows.pages
 {
     /// <summary>
-    /// Logika interakcji dla klasy Roulette.xaml
+    /// Logika interakcji dla klasy Settings.xaml
     /// </summary>
-    public partial class Roulette : UserControl
+    public partial class Settings : UserControl
     {
         private static MainWindow window;
-        public Roulette()
+        public Settings()
         {
             window = (MainWindow)Window.GetWindow(this);
             InitializeComponent();
-        }
-
-        private void Navigation(object sender, RoutedEventArgs e)
-        {
-            string btnName = ((Button)sender).Name[4].ToString();
-            if (btnName == "0")
-                window.frame.NavigationService.Navigate(new Welcome(window));
-            else
-                Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
         }
     }
 }

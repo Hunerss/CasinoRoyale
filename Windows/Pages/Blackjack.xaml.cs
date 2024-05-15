@@ -22,9 +22,9 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Blackjack : UserControl
     {
         private static MainWindow window;
-        public Blackjack(MainWindow win)
+        public Blackjack()
         {
-            window = win;
+            window = (MainWindow)Window.GetWindow(this);
             InitializeComponent();
         }
 
