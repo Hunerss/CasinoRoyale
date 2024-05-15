@@ -26,6 +26,15 @@ namespace CasinoRoyale.Windows.Pages
             window = win;
             InitializeComponent();
         }
+
+        private void Navigation(object sender, RoutedEventArgs e)
+        {
+            string btnName = ((Button)sender).Name[4].ToString();
+            if (btnName == "0")
+                window.frame.NavigationService.Navigate(new Welcome(window));
+            else
+                Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
+        }
     }
 }
 
