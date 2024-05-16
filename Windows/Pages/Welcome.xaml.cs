@@ -31,7 +31,7 @@ namespace CasinoRoyale.Windows.Pages
 
         private void Navigation(object sender, RoutedEventArgs e)
         {
-            window.frame.NavigationService.Navigate(new MainMenu());
+            window.frame.NavigationService.Navigate(new MainMenu(window));
         }
     }
 }

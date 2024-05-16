@@ -48,8 +48,8 @@
                     </Grid.RowDefinitions>
                     <Button IsEnabled="False" Name="btn_5" Grid.Row="0" Click="Navigation">Scores</Button>
                     <Button IsEnabled="False" Name="btn_6" Grid.Row="1" Click="Navigation">Bank</Button>
-                    <Button IsEnabled="False" Name="btn_7" Grid.Row="2" Click="Navigation">Licences</Button>
-                    <Button IsEnabled="False" Name="btn_8" Grid.Row="3" Click="Navigation">About us</Button>
+                    <Button Name="btn_7" Grid.Row="2" Click="Navigation">Licences</Button>
+                    <Button Name="btn_8" Grid.Row="3" Click="Navigation">About us</Button>
                 </Grid>
             </Grid>
         </Grid>

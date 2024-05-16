@@ -19,7 +19,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Settings</TextBlock>
-            <Button Name="btn_0" Grid.Row="2" Click="Navigation">Out</Button>
+            <Button Name="btn_0" Grid.Row="2">Out</Button>
         </Grid>
     </Grid>
 </UserControl>

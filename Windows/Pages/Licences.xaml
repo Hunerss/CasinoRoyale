@@ -20,6 +20,31 @@
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Licences</TextBlock>
             <Button Name="btn_0" Grid.Row="2" Click="Navigation">Out</Button>
+            <ScrollViewer Grid.Row="1">
+                <TextBlock TextWrapping="Wrap" Margin="15" Padding="5">
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                    </TextBlock.Background>
+                        <LineBreak/>Licencja użytkowania dla aplikacji gry kasynowej<LineBreak/>
+                        <LineBreak/>Definicje<LineBreak/>
+                        <LineBreak/>W niniejszej umowie, "Aplikacja" oznacza grę kasynową, w tym wszelkie związane z nią oprogramowanie, materiały, pliki, dane i treści. "Licencjobiorca" oznacza osobę fizyczną lub podmiot prawnie uprawniony do korzystania z Aplikacji zgodnie z niniejszą umową. "Wydawca" oznacza podmiot lub firmę, która udostępnia Aplikację.<LineBreak/>
+                        <LineBreak/>Licencja<LineBreak/>
+                        <LineBreak/>Wydawca udziela Licencjobiorcy ograniczonej, nieprzenośnej, niepodzielnej i nieodpłatnej licencji na korzystanie z Aplikacji zgodnie z warunkami niniejszej umowy. Licencjobiorca nie ma prawa do sprzedaży, sublicencji, dystrybucji ani innej formy przeniesienia praw związanych z Aplikacją.<LineBreak/>
+                        <LineBreak/>Ograniczenia użytkowania<LineBreak/>
+                        <LineBreak/>Licencjobiorca nie ma prawa do:<LineBreak/>
+                            <LineBreak/>Modyfikowania, dostosowywania, dekompilowania ani odwracania inżynierii Aplikacji.<LineBreak/>
+                            <LineBreak/>Usuwania, zmieniania ani zakłócania oznaczeń praw autorskich, znaków wodnych lub innych informacji o prawach własności intelektualnej zawartych w Aplikacji.<LineBreak/>
+                            <LineBreak/>Korzystania z Aplikacji w sposób sprzeczny z prawem lub szkodliwy dla innych użytkowników lub osób trzecich.<LineBreak/>
+                        <LineBreak/>Prawa własności intelektualnej<LineBreak/>
+                        <LineBreak/>Wydawca zachowuje pełne prawo własności intelektualnej do Aplikacji, w tym praw autorskich, znaków towarowych i innych praw własności intelektualnej. Licencjobiorca nie nabiera żadnych praw własności intelektualnej do Aplikacji ani do jakiejkolwiek jej części.<LineBreak/>
+                        <LineBreak/>Gwarancje<LineBreak/>
+                        <LineBreak/>Aplikacja jest udostępniana "w stanie, w jakim się znajduje", bez żadnych wyraźnych ani domniemanych gwarancji, w tym gwarancji jakości, przydatności do określonego celu ani niezawodności. Licencjobiorca korzysta z Aplikacji na własne ryzyko.<LineBreak/>
+                        <LineBreak/>Ograniczenie odpowiedzialności<LineBreak/>
+                        <LineBreak/>W żadnym przypadku Wydawca nie będzie odpowiedzialny wobec Licencjobiorcy za żadne bezpośrednie, pośrednie, przypadkowe, następcze ani karne szkody wynikające z korzystania z Aplikacji lub związane z nią.<LineBreak/>
+                        <LineBreak/>Postanowienia ogólne<LineBreak/>
+                        <LineBreak/>Niniejsza umowa stanowi całość porozumienia między stronami w odniesieniu do korzystania z Aplikacji i zastępuje wszelkie wcześniejsze lub współczesne ustalenia, ustne lub pisemne, dotyczące tej samej kwestii. Umowa podlega prawu obowiązującemu w kraju, w którym została zawarta.<LineBreak/>
+                </TextBlock>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </UserControl>
