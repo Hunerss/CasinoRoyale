@@ -42,9 +42,9 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Login</TextBlock>
                     <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Password</TextBlock>
-                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Name</TextBlock>
-                    <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Surname</TextBlock>
-                    <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Age</TextBlock>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Birthdate</TextBlock>
+                    <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Licence</TextBlock>
+                    <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38px">Instruction</TextBlock>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
@@ -56,9 +56,15 @@
                     </Grid.RowDefinitions>
                     <TextBox Name="txb_0" Grid.Row="0" Height="40px" FontSize="20px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
                     <PasswordBox Name="txb_1" Grid.Row="1" Height="40px" FontSize="20px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></PasswordBox>
-                    <TextBox Name="txb_2" Grid.Row="2" Height="40px" FontSize="20px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
-                    <TextBox Name="txb_3" Grid.Row="3" Height="40px" FontSize="20px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
-                    <TextBox Name="txb_4" Grid.Row="4" Height="40px" FontSize="20px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                    <DatePicker Name="txb_2" Grid.Row="2" Height="40px" FontSize="20px" VerticalContentAlignment="Center" ></DatePicker>
+                    <DockPanel Grid.Row="3" VerticalAlignment="Center">
+                        <CheckBox Name="chb_0" Margin="15 0 0 0" Content="Accept" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Button Name="btn_2" Grid.Row="4" Width="60px" Height="40px" FontSize="20px" Click="Navigation">Read</Button>
+                    </DockPanel>
+                    <DockPanel Grid.Row="4" VerticalAlignment="Center">
+                        <CheckBox Name="chb_1" Margin="15 0 0 0" Content="Accept" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Button Name="btn_3" Grid.Row="4" Width="60px" Height="40px" FontSize="20px" Click="Navigation">Read</Button>
+                    </DockPanel>
                 </Grid>
             </Grid>
         </Grid>
