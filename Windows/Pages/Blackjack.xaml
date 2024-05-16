@@ -20,6 +20,10 @@
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Blackjack</TextBlock>
             <Button Name="btn_0" Grid.Row="2" Click="Navigation">Out</Button>
+            <Grid Grid.Row="1">
+                <Button Name="btn_4" VerticalAlignment="Top"  Click="Game"> Draw card</Button>
+                <Button Name="btn_5" VerticalAlignment="Bottom" Click="Game">Pass</Button>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

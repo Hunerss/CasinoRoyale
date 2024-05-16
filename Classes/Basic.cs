@@ -1,4 +1,8 @@
-﻿namespace CasinoRoyale.Classes
+﻿using CasinoRoyale.classes;
+using System.Collections.Generic;
+using System.Windows.Documents;
+
+namespace CasinoRoyale.Classes
 {
     internal class Basic
     {
@@ -21,6 +25,20 @@
                 14 => "Ace",
                 _ => "Unknown",
             };
+        }
+
+        public static List<Card> GenerateDeck()
+        {
+            string[] Suits = { "spades", "hearts", "diamonds", "clubs" };
+            int[] Values = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+
+            List<Card> deck = new();
+
+            foreach (string suit in Suits)
+                foreach (int value in Values)
+                    deck.Add(new Card(value, suit));
+
+            return deck;
         }
 
     }

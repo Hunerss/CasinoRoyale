@@ -15,7 +15,7 @@ namespace CasinoRoyale.classes
             Id = $"{cardValue}{suit[0]}";
             Value = cardValue;
             Suit = suit;
-            //Image = imageLink;
+            Image = $"images/{cardValue}{suit[0]}.png";
         }
 
 

@@ -1,4 +1,5 @@
-﻿using CasinoRoyale.windows.pages;
+﻿using CasinoRoyale.classes;
+using CasinoRoyale.windows.pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,25 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Blackjack : UserControl
     {
         private static MainWindow window;
+        private static BlackjackOperations bj = new();
         public Blackjack(MainWindow win)
         {
             window = win;
             InitializeComponent();
+        }
+
+        private void Game(object sender, RoutedEventArgs e)
+        {
+            string btnName = ((Button)sender).Name[4].ToString();
+            if(btnName == "4")
+            {
+
+                Console.WriteLine(bj.GenrateCard(false).Id);
+            }
+            else
+            {
+                bj.DescribeHand(false);
+            }
         }
 
         private void Navigation(object sender, RoutedEventArgs e)
