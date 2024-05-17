@@ -1,9 +1,6 @@
 ﻿using CasinoRoyale.Classes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CasinoRoyale.classes
 {
@@ -30,7 +27,17 @@ namespace CasinoRoyale.classes
             this.bet = bet;
         }
 
-        public Card GenrateCard(Boolean casino)
+        public int GetBet()
+        {
+            return this.bet;
+        }
+
+        public List<Card> GetHand(Boolean casino)
+        {
+            return casino ? casinoCards : userCards;
+        }
+
+        public Card GenerateCard(Boolean casino)
         {
             if (cards.Count == 0)
                 throw new InvalidOperationException("No cards left in the deck");
@@ -42,8 +49,17 @@ namespace CasinoRoyale.classes
             return card;
         }
 
+        public void GenerateCasinoCards()
+        {
+            casinoCards.Clear();
+            GenerateCard(true);
+            GenerateCard(true);
+            DescribeHand(true);
+        }
+
         private void SetCard(Boolean casino, Card card)
         {
+            Console.WriteLine($"Setting card {card.Id} for {(casino ? "casino" : "user")}");
             if (casino)
                 casinoCards.Add(card);
             else
@@ -75,6 +91,21 @@ namespace CasinoRoyale.classes
                 userScore = score;
         }
 
+        public void DescribeHand()
+        {
+            List<Card> hand = casinoCards;
+            int score = 0;
+
+            foreach (Card card in hand)
+            {
+                if (card.Value > 10)
+                    score += 10;
+                else
+                    score += CalculateCardValue(card, score);
+            }
+            casinoScore = score;
+        }
+
         public void DescribeScore(Boolean casino)
         {
             if (casino)
@@ -82,25 +113,68 @@ namespace CasinoRoyale.classes
             else
                 Console.WriteLine(userScore);
         }
-        
-        public void UpdateDeckMath()
-        {
-            for (int i = 0; i < deckMath.Length; i++)
-                deckMath[i] = 4;
 
+        private int CheckWin()
+        {
+            // codes || 0 - casino win | 1 - user win | 2 - draw | 3 - blackjack ||
+            if(casinoScore == 21)
+                return 0;
+            else if(casinoScore > 21)
+                return 1;
+            else if (casinoScore <= userScore)
+            {
+                if (userScore == 21 && userCards.Count == 2)
+                    return 3;
+                else if (casinoScore == userScore)
+                    return 2;
+                else
+                    return 1;
+            }
+            else
+                return 0;
+        }
+
+        private Boolean CheckForAs()
+        {
             foreach (Card card in casinoCards)
             {
-                int index = card.Value - 2;
-                if (index >= 0 && index < deckMath.Length)
-                    deckMath[index]--;
+                if(card.Id=="14s" || card.Id == "14h" || card.Id == "14d" || card.Id == "14c")
+                    return true;
             }
+            return false;
+        }
 
-            foreach (Card card in userCards)
+
+        public int Game()
+        {
+            DescribeHand(false);
+            DescribeHand(true);
+
+            if (userScore > 21)
+                return 0;
+            else
             {
-                int index = card.Value - 2;
-                if (index >= 0 && index < deckMath.Length)
-                    deckMath[index]--;
+                if (casinoScore < 17 || (casinoScore==17 && CheckForAs()))
+                    while (casinoScore < 17)
+                    {
+                        GenerateCard(true);
+                        DescribeHand();
+                    }
+                DescribeHand(true);
+                return CheckWin();
             }
+        }
+
+        public int InterpreteWin(int win)
+        {
+            return win switch
+            {
+                0 => 0,
+                1 => bet * 2,
+                2 => bet,
+                3 => Convert.ToInt32(bet * 2.5),
+                _ => throw new InvalidOperationException("Wrong win input"),
+            };
         }
     }
 }

@@ -23,24 +23,54 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Blackjack : UserControl
     {
         private static MainWindow window;
-        private static BlackjackOperations bj = new();
+        private static BlackjackOperations bj;
         public Blackjack(MainWindow win)
         {
             window = win;
             InitializeComponent();
+            bj = new();
+            bj.GenerateCasinoCards();
         }
 
         private void Game(object sender, RoutedEventArgs e)
         {
             string btnName = ((Button)sender).Name[4].ToString();
+            ShowCards(true, bj.GetHand(true));
             if(btnName == "4")
             {
-
-                Console.WriteLine(bj.GenrateCard(false).Id);
+                Console.WriteLine(bj.GenerateCard(false).Id);
+                ShowCards(false, bj.GetHand(false));
             }
             else
             {
-                bj.DescribeHand(false);
+                int x = Convert.ToInt32(bet.Text);
+                bj.SetBet(x);
+                int score = bj.Game();
+                ShowCards(true, bj.GetHand(true));
+                Console.WriteLine("Score: " + score);
+                Console.WriteLine("Start bet: " + bj.GetBet());
+                Console.WriteLine("Recived bet: " + bj.InterpreteWin(score));
+            }
+        }
+
+        private void ShowCards(Boolean casino, List<Card> cards)
+        {
+            Console.WriteLine("Kot");
+            if( casino )
+            {
+                cas_cards.Text = "";
+                foreach (Card card in cards)
+                {
+                    cas_cards.Text += card.Id;
+                }
+            }
+            else
+            {
+                use_cards.Text = "";
+                foreach (Card card in cards)
+                {
+                    use_cards.Text += card.Id;
+                }
             }
         }
 
