@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="CasinoRoyale.windows.pages.CardModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CasinoRoyale.windows.pages"
+             mc:Ignorable="d" 
+            Width="50" Height="60">
+    <Grid Background="Gray" Name="MainGrid" MouseDown="MainGrid_MouseDown">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Card</TextBlock>
+    </Grid>
+</UserControl>
