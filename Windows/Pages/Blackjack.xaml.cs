@@ -20,21 +20,27 @@ namespace CasinoRoyale.Windows.Pages
         private static List<CardModel> userCards;
         private static List<CardModel> casinoCards;
 
-        DispatcherTimer timer = new();
-        DispatcherTimer startCardsTimer = new();
+        DispatcherTimer timer;
+        DispatcherTimer startCardsTimer;
 
         private static Boolean methodBlocker;
-        private static int startCards = 4;
+        private static int startCards;
+        private static int check;
 
         public Blackjack(MainWindow win)
         {
+            InitializeComponent();
+            cards = new();
+            timer = new();
+            startCardsTimer = new();
+            startCards = 4;
+            check = 1;
             window = win;
             methodBlocker = false;
-            InitializeComponent();
             methodBlocker = true;
             bj = new();
 
-            timer.Interval = TimeSpan.FromMilliseconds(20);
+            timer.Interval = TimeSpan.FromMilliseconds(30);
             timer.Tick += Timer_Tick;
             timer.Start();
 
@@ -51,17 +57,17 @@ namespace CasinoRoyale.Windows.Pages
 
         private void StartCardsTimer_Tick(object? sender, EventArgs e)
         {
-            int check = 1;
             if (startCards > 0)
             {
                 CardModel card = new();
                 Point startPos = StackCard.GetPosition();
                 card.SetPosition(startPos.X, startPos.Y);
-                if(check%2==0)
-                    card.SetTargetPosition(new Point(10 + (4 - startCards) * 90, 20));
-                else
-                    card.SetTargetPosition(new Point(10 + (4 - startCards) * 90, 160));
-
+                Console.WriteLine(check + " " + Convert.ToInt32(3/2));
+                if (check % 2 == 0)
+                    card.SetTargetPosition(new Point(-45 + (2 - Convert.ToInt32(startCards / 2)) * 95, 60));
+                else                                 
+                    card.SetTargetPosition(new Point(50 + (2 - Convert.ToInt32(startCards / 2)) * 95, 210));
+                check++;
                 Cnv.Children.Add(card);
                 cards.Add(card);
                 startCards--;
@@ -115,7 +121,10 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
+            {
                 window.frame.NavigationService.Navigate(new Welcome(window));
+
+            }
             else if (btnName == "1")
             {
                 if (CheckBet())
@@ -137,7 +146,7 @@ namespace CasinoRoyale.Windows.Pages
             {
                 Console.WriteLine(bj.GenerateCard(false).Id);
                 ShowCards(false, bj.GetHand(false));
-                if (!bj.CheckUserScore()) 
+                if (!bj.CheckUserScore())
                 {
                     btn_2.IsEnabled = false;
                     btn_3.IsEnabled = false;
@@ -161,8 +170,8 @@ namespace CasinoRoyale.Windows.Pages
                     outcome = "drew";
                 else
                     outcome = "lose";
-                MessageBox.Show("You " + outcome + Environment.NewLine + 
-                                "Bet you made: " + bj.GetBet() + Environment.NewLine + 
+                MessageBox.Show("You " + outcome + Environment.NewLine +
+                                "Bet you made: " + bj.GetBet() + Environment.NewLine +
                                 "Bet after game: " + bj.InterpreteWin(score));
                 bj = new();
                 btn_1.IsEnabled = true;

@@ -39,7 +39,7 @@ namespace CasinoRoyale.windows.pages
             if (TimeToTarget > 1)
                 TimeToTarget = 1;
 
-            SetPosition(Lerp(StartPosition.X, TargetPositon.X, TimeToTarget), Lerp(StartPosition.Y, TargetPositon.Y, TimeToTarget));
+            SetPosition(Lerp(GetPosition().X, TargetPositon.X, TimeToTarget), Lerp(GetPosition().Y, TargetPositon.Y, TimeToTarget));
         }
 
         public static double Lerp(double a, double b, double t)
