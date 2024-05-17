@@ -56,7 +56,7 @@
                     </Grid.RowDefinitions>
                     <TextBox Name="txb_0" Grid.Row="0" Height="40px" FontSize="20px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
                     <PasswordBox Name="txb_1" Grid.Row="1" Height="40px" FontSize="20px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></PasswordBox>
-                    <DatePicker Name="txb_2" Grid.Row="2" Height="40px" FontSize="20px" VerticalContentAlignment="Center" ></DatePicker>
+                    <DatePicker Name="txb_2" Grid.Row="2" Height="40px" FontSize="20px" VerticalContentAlignment="Center"></DatePicker>
                     <DockPanel Grid.Row="3" VerticalAlignment="Center">
                         <CheckBox Name="chb_0" Margin="15 0 0 0" Content="Accept" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         <Button Name="btn_2" Grid.Row="4" Width="60px" Height="40px" FontSize="20px" Click="Navigation">Read</Button>

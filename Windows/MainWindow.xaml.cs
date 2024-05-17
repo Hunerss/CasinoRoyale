@@ -1,4 +1,5 @@
-﻿using CasinoRoyale.Windows.Pages;
+﻿using CasinoRoyale.windows.pages;
+using CasinoRoyale.Windows.Pages;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
