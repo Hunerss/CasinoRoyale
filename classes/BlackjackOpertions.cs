@@ -6,7 +6,6 @@ namespace CasinoRoyale.classes
 {
     class BlackjackOperations
     {
-        protected new int[] deckMath = { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 };
         protected List<Card> cards = new();
         protected List<Card> casinoCards = new();
         protected List<Card> userCards = new();

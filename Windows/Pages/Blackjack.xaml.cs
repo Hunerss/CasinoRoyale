@@ -24,12 +24,16 @@ namespace CasinoRoyale.Windows.Pages
     {
         private static MainWindow window;
         private static BlackjackOperations bj;
+
+        private static Boolean methodBlocker;
+
         public Blackjack(MainWindow win)
         {
             window = win;
+            methodBlocker = false;
             InitializeComponent();
+            methodBlocker = true;
             bj = new();
-            bj.GenerateCasinoCards();
         }
 
         private void Game(object sender, RoutedEventArgs e)
@@ -38,13 +42,10 @@ namespace CasinoRoyale.Windows.Pages
             ShowCards(true, bj.GetHand(true));
             if(btnName == "4")
             {
-                Console.WriteLine(bj.GenerateCard(false).Id);
-                ShowCards(false, bj.GetHand(false));
+                
             }
             else
             {
-                int x = Convert.ToInt32(bet.Text);
-                bj.SetBet(x);
                 int score = bj.Game();
                 ShowCards(true, bj.GetHand(true));
                 Console.WriteLine("Score: " + score);
@@ -56,22 +57,22 @@ namespace CasinoRoyale.Windows.Pages
         private void ShowCards(Boolean casino, List<Card> cards)
         {
             Console.WriteLine("Kot");
-            if( casino )
-            {
-                cas_cards.Text = "";
-                foreach (Card card in cards)
-                {
-                    cas_cards.Text += card.Id;
-                }
-            }
-            else
-            {
-                use_cards.Text = "";
-                foreach (Card card in cards)
-                {
-                    use_cards.Text += card.Id;
-                }
-            }
+            //if( casino )
+            //{
+            //    cas_cards.Text = "";
+            //    foreach (Card card in cards)
+            //    {
+            //        cas_cards.Text += card.Id;
+            //    }
+            //}
+            //else
+            //{
+            //    use_cards.Text = "";
+            //    foreach (Card card in cards)
+            //    {
+            //        use_cards.Text += card.Id;
+            //    }
+            //}
         }
 
         private void Navigation(object sender, RoutedEventArgs e)
@@ -79,8 +80,51 @@ namespace CasinoRoyale.Windows.Pages
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
                 window.frame.NavigationService.Navigate(new Welcome(window));
+            else if(btnName == "1")
+            {
+                if (CheckBet())
+                {
+                    btn_2.IsEnabled = true;
+                    btn_3.IsEnabled = true;
+                    btn_4.IsEnabled = true;
+                    bet.IsEnabled = false;
+                    int betAmount = Convert.ToInt32(bet.Text);
+                    bj.SetBet(betAmount);
+                    bj.GenerateCasinoCards();
+                    ShowCards(true, bj.GetHand(true));
+                }
+            }
+            else if(btnName == "2")
+            {
+                Console.WriteLine(bj.GenerateCard(false).Id);
+                ShowCards(false, bj.GetHand(false));
+            }
+            else if(btnName == "3")
+            {
+                // action for double
+            }
+            else if (btnName == "4")
+            {
+                // action for pc
+            }
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
+        }
+
+        private Boolean CheckBet()
+        {
+            if (methodBlocker)
+            {
+                string betToCheck = bet.Text;
+                Boolean check = true;
+                foreach (char character in betToCheck)
+                {
+                    if (!char.IsNumber(character))
+                        check = false;
+                }
+                return check;
+            }
+            return false;
         }
     }
 }
