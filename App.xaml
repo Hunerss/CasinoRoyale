@@ -8,7 +8,10 @@
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Bodoni MT"/>
         </Style>
-        
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Bodoni MT"/>
+        </Style>
         
     </Application.Resources>
 </Application>
