@@ -13,10 +13,12 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="reelPanel">
-                <Image Name="reel1" Width="100" Height="100" Margin="10"/>
-                <Image Name="reel2" Width="100" Height="100" Margin="10"/>
-                <Image Name="reel3" Width="100" Height="100" Margin="10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="reelPanel" Background="AliceBlue">
+                <Image Source="/images/sym_1.png" Name="reel1" Width="100" Height="100" Margin="10"/>
+                <Image Source="/images/sym_1.png" Name="reel2" Width="100" Height="100" Margin="10"/>
+                <Image Source="/images/sym_1.png" Name="reel3" Width="100" Height="100" Margin="10"/>
+                <Image Source="/images/sym_1.png" Name="reel4" Width="100" Height="100" Margin="10"/>
+                <Image Source="/images/sym_1.png" Name="reel5" Width="100" Height="100" Margin="10"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
@@ -28,8 +30,8 @@
             </Grid.ColumnDefinitions>
             <Button Name="btn_0" Grid.Column="0" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Go Back</Button>
             <TextBox Name="bet" Grid.Column="1" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalAlignment="Center">Bet</TextBox>
-            <Button IsEnabled="False" Name="btn_1" Grid.Column="2" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Set Bet</Button>
-            <Button IsEnabled="False" Name="btn_2" Grid.Column="3" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Spin</Button>
+            <Button Name="btn_1" Grid.Column="2" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Set Bet</Button>
+            <Button Name="btn_2" Grid.Column="3" Width="100px" Height="40px" FontSize="25px" Click="Spin_Click">Spin</Button>
         </Grid>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
