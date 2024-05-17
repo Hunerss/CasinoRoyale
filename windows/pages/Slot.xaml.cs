@@ -27,13 +27,19 @@ namespace CasinoRoyale.windows.pages
         private readonly DispatcherTimer timer = new();
         private int animationFrame;
         private int spinDuration;
+        private int betAmount;
 
         private readonly string[] symbols = new[]
         {
-            "pack://application:,,,/images/sym_1.png",
-            "pack://application:,,,/images/sym_2.png",
-            "pack://application:,,,/images/sym_3.png",
-            "pack://application:,,,/images/sym_4.png"
+            "pack://application:,,,/images/bell.png",
+            "pack://application:,,,/images/cherries.png",
+            "pack://application:,,,/images/grape.png",
+            "pack://application:,,,/images/jackpot-machine.png",
+            "pack://application:,,,/images/lemon.png",
+            "pack://application:,,,/images/orange.png",
+            "pack://application:,,,/images/plum.png",
+            "pack://application:,,,/images/seven.png",
+            "pack://application:,,,/images/star.png"
         };
 
 
@@ -41,7 +47,7 @@ namespace CasinoRoyale.windows.pages
         {
             InitializeComponent();
             window = win;
-            timer.Interval = TimeSpan.FromMilliseconds(50);
+            timer.Interval = TimeSpan.FromMilliseconds(100);
             timer.Tick += Timer_Tick;
         }
 
@@ -55,14 +61,12 @@ namespace CasinoRoyale.windows.pages
                 CheckWin();
             }
             else
-            {
                 UpdateReels();
-            }
         }
 
         private void CheckWin()
         {
-            List<string> symbols = new List<string>()
+            List<string> symbols = new()
             {
                 reel1.Source.ToString(),
                 reel2.Source.ToString(),
@@ -74,27 +78,32 @@ namespace CasinoRoyale.windows.pages
             Dictionary<string, int> sameSymbols = symbols.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
 
             int most = sameSymbols.Values.Max();
+            var mostFrequentSymbol = sameSymbols.FirstOrDefault(x => x.Value == most);
 
-            string message = "Try again!";
+            string message = "Try again! " + Environment.NewLine + " You lost: ";
 
             if (most >= 3)
             {
-                if (most == 3)
-                    message = "Small Win!";
-                else if (most == 4)
-                    message = "Medium Win!";
-                else if (most == 5)
-                    message = "JACKPOT!";
+                message = most switch
+                {
+                    3 => "Small Win!",
+                    4 => "Medium Win!",
+                    5 => "JACKPOT!",
+                    _ => message
+                };
+                message += Environment.NewLine + "You won: ";
+                if (mostFrequentSymbol.Key == symbols[1] || mostFrequentSymbol.Key == symbols[2] ||
+                    mostFrequentSymbol.Key == symbols[3] || mostFrequentSymbol.Key == symbols[4] ||
+                    mostFrequentSymbol.Key == symbols[5])
+                    betAmount *= 3;
+                else if (mostFrequentSymbol.Key == symbols[0] || mostFrequentSymbol.Key == symbols[7] ||
+                    mostFrequentSymbol.Key == symbols[8])
+                    betAmount *= 5;
+                else
+                    betAmount *= 10;
+                //message += $"\nSymbol: {mostFrequentSymbol.Key}\nCount: {mostFrequentSymbol.Value}";
             }
-
-            MessageBox.Show(message);
-        }
-
-        private void Spin_Click(object sender, RoutedEventArgs e)
-        {
-            spinDuration = random.Next(30, 50);
-            animationFrame = 0;
-            timer.Start();
+            MessageBox.Show(message += betAmount);
         }
 
         private void UpdateReels()
@@ -120,8 +129,38 @@ namespace CasinoRoyale.windows.pages
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
                 window.frame.NavigationService.Navigate(new Welcome(window));
+            else if(btnName == "1")
+            {
+                if (CheckBet())
+                {
+                    betAmount = Convert.ToInt32(bet.Text);
+                    bet.IsEnabled = false;
+                    btn_1.IsEnabled = false;
+                    btn_2.IsEnabled = true;
+                }
+            }
+            else if (btnName == "2")
+            {
+                if(betAmount != Convert.ToInt32(bet.Text))
+                    betAmount = Convert.ToInt32(bet.Text);
+                spinDuration = random.Next(30, 50);
+                animationFrame = 0;
+                timer.Start();
+            }
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
+        }
+
+        private Boolean CheckBet()
+        {
+            string betToCheck = bet.Text;
+            Boolean check = true;
+            foreach (char character in betToCheck)
+            {
+                if (!char.IsNumber(character))
+                    check = false;
+            }
+            return check;
         }
     }
 }
