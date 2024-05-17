@@ -8,13 +8,37 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="images\" />
+    <None Remove="images\bell.png" />
+    <None Remove="images\cherries.png" />
+    <None Remove="images\grape.png" />
+    <None Remove="images\jackpot-machine.png" />
+    <None Remove="images\lemon.png" />
+    <None Remove="images\orange.png" />
+    <None Remove="images\plum.png" />
+    <None Remove="images\seven.png" />
+    <None Remove="images\star.png" />
+    <None Remove="images\sym_5.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\bell.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.3.1" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
     <PackageReference Include="MySqlConnector" Version="2.3.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\cherries.png" />
+    <Resource Include="images\grape.png" />
+    <Resource Include="images\jackpot-machine.png" />
+    <Resource Include="images\lemon.png" />
+    <Resource Include="images\orange.png" />
+    <Resource Include="images\plum.png" />
+    <Resource Include="images\seven.png" />
+    <Resource Include="images\star.png" />
   </ItemGroup>
 
 </Project>

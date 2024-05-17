@@ -13,7 +13,11 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Canvas Grid.Row="1" x:Name="Cnv" Background="AliceBlue">
-            <!--<local:CardModel x:Name="StackCard" Canvas.Left="600" Canvas.Top="300"/>-->
+            <local:CardModel x:Name="StackCard" Canvas.Left="670" Canvas.Top="110"/>
+            <local:CardModel x:Name="Card1" Canvas.Left="10" Canvas.Top="20"/>
+            <local:CardModel x:Name="Card2" Canvas.Left="100" Canvas.Top="20"/>
+            <local:CardModel x:Name="Card3" Canvas.Left="10" Canvas.Top="160"/>
+            <local:CardModel x:Name="Card4" Canvas.Left="100" Canvas.Top="160"/>
         </Canvas>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
