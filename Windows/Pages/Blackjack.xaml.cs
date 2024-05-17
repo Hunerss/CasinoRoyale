@@ -1,19 +1,8 @@
 ﻿using CasinoRoyale.classes;
-using CasinoRoyale.windows.pages;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CasinoRoyale.Windows.Pages
 {
@@ -40,9 +29,9 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             ShowCards(true, bj.GetHand(true));
-            if(btnName == "4")
+            if (btnName == "4")
             {
-                
+
             }
             else
             {
@@ -80,10 +69,11 @@ namespace CasinoRoyale.Windows.Pages
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
                 window.frame.NavigationService.Navigate(new Welcome(window));
-            else if(btnName == "1")
+            else if (btnName == "1")
             {
                 if (CheckBet())
                 {
+                    btn_1.IsEnabled = false;
                     btn_2.IsEnabled = true;
                     btn_3.IsEnabled = true;
                     btn_4.IsEnabled = true;
@@ -92,20 +82,47 @@ namespace CasinoRoyale.Windows.Pages
                     bj.SetBet(betAmount);
                     bj.GenerateCasinoCards();
                     ShowCards(true, bj.GetHand(true));
+                    bj.GenerateCard(false);
+                    bj.GenerateCard(false);
                 }
             }
-            else if(btnName == "2")
+            else if (btnName == "2")
             {
                 Console.WriteLine(bj.GenerateCard(false).Id);
                 ShowCards(false, bj.GetHand(false));
+                if (!bj.CheckUserScore()) 
+                {
+                    btn_2.IsEnabled = false;
+                    btn_3.IsEnabled = false;
+                }
             }
-            else if(btnName == "3")
+            else if (btnName == "3")
             {
-                // action for double
+                bj.GenerateCard(false);
+                bj.SetBet(bj.GetBet() * 2);
+                bet.Text = bj.GetBet().ToString();
+                btn_2.IsEnabled = false;
+                btn_3.IsEnabled = false;
             }
             else if (btnName == "4")
             {
-                // action for pc
+                int score = bj.Game();
+                string outcome = "";
+                if (score != 0 && score != 2)
+                    outcome = "win";
+                else if (score == 2)
+                    outcome = "drew";
+                else
+                    outcome = "lose";
+                MessageBox.Show("You " + outcome + Environment.NewLine + 
+                                "Bet you made: " + bj.GetBet() + Environment.NewLine + 
+                                "Bet after game: " + bj.InterpreteWin(score));
+                bj = new();
+                btn_1.IsEnabled = true;
+                btn_2.IsEnabled = false;
+                btn_3.IsEnabled = false;
+                btn_4.IsEnabled = false;
+                bet.IsEnabled = true;
             }
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);

@@ -53,10 +53,5 @@ namespace CasinoRoyale.windows.pages
             TimeToTarget = 0;
             TargetPositon = target;
         }
-
-        private void MainGrid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SetTargetPosition(new Point(GetPosition().X, GetPosition().Y + 50));
-        }
     }
 }

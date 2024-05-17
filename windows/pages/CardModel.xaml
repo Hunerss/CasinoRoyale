@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CasinoRoyale.windows.pages"
              mc:Ignorable="d" 
-            Width="50" Height="60">
-    <Grid Background="Gray" Name="MainGrid" MouseDown="MainGrid_MouseDown">
+             d:DesignHeight="60" d:DesignWidth="50">
+    <Grid Background="Gray" Name="MainGrid">
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Card</TextBlock>
     </Grid>
 </UserControl>

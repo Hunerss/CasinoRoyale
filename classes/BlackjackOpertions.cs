@@ -36,6 +36,11 @@ namespace CasinoRoyale.classes
             return casino ? casinoCards : userCards;
         }
 
+        public Boolean CheckUserScore()
+        {
+            return userScore < 21;
+        }
+
         public Card GenerateCard(Boolean casino)
         {
             if (cards.Count == 0)
@@ -116,9 +121,9 @@ namespace CasinoRoyale.classes
         private int CheckWin()
         {
             // codes || 0 - casino win | 1 - user win | 2 - draw | 3 - blackjack ||
-            if(casinoScore == 21)
+            if (casinoScore == 21)
                 return 0;
-            else if(casinoScore > 21)
+            else if (casinoScore > 21)
                 return 1;
             else if (casinoScore <= userScore)
             {
@@ -137,7 +142,7 @@ namespace CasinoRoyale.classes
         {
             foreach (Card card in casinoCards)
             {
-                if(card.Id=="14s" || card.Id == "14h" || card.Id == "14d" || card.Id == "14c")
+                if (card.Id == "14s" || card.Id == "14h" || card.Id == "14d" || card.Id == "14c")
                     return true;
             }
             return false;
@@ -153,7 +158,7 @@ namespace CasinoRoyale.classes
                 return 0;
             else
             {
-                if (casinoScore < 17 || (casinoScore==17 && CheckForAs()))
+                if (casinoScore < 17 || (casinoScore == 17 && CheckForAs()))
                     while (casinoScore < 17)
                     {
                         GenerateCard(true);
