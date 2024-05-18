@@ -29,24 +29,16 @@ namespace CasinoRoyale.Windows.Pages
 
         public Blackjack(MainWindow win)
         {
+            methodBlocker = false;
             InitializeComponent();
+            methodBlocker = true;
             cards = new();
             timer = new();
             startCardsTimer = new();
             startCards = 4;
             check = 1;
             window = win;
-            methodBlocker = false;
-            methodBlocker = true;
             bj = new();
-
-            timer.Interval = TimeSpan.FromMilliseconds(30);
-            timer.Tick += Timer_Tick;
-            timer.Start();
-
-            startCardsTimer.Interval = TimeSpan.FromMilliseconds(200);
-            startCardsTimer.Tick += StartCardsTimer_Tick;
-            startCardsTimer.Start();
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -81,7 +73,7 @@ namespace CasinoRoyale.Windows.Pages
         private void Game(object sender, RoutedEventArgs e)
         {
             string btnName = ((Button)sender).Name[4].ToString();
-            ShowCards(true, bj.GetHand(true));
+            //ShowCards(true, bj.GetHand(true));
             if (btnName == "4")
             {
 
@@ -89,32 +81,22 @@ namespace CasinoRoyale.Windows.Pages
             else
             {
                 int score = bj.Game();
-                ShowCards(true, bj.GetHand(true));
+                //ShowCards(true, bj.GetHand(true));
                 Console.WriteLine("Score: " + score);
                 Console.WriteLine("Start bet: " + bj.GetBet());
                 Console.WriteLine("Recived bet: " + bj.InterpreteWin(score));
             }
         }
 
-        private void ShowCards(Boolean casino, List<Card> cards)
+        private void ShowCards()
         {
-            Console.WriteLine("Kot");
-            //if( casino )
-            //{
-            //    cas_cards.Text = "";
-            //    foreach (Card card in cards)
-            //    {
-            //        cas_cards.Text += card.Id;
-            //    }
-            //}
-            //else
-            //{
-            //    use_cards.Text = "";
-            //    foreach (Card card in cards)
-            //    {
-            //        use_cards.Text += card.Id;
-            //    }
-            //}
+            timer.Interval = TimeSpan.FromMilliseconds(30);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            startCardsTimer.Interval = TimeSpan.FromMilliseconds(200);
+            startCardsTimer.Tick += StartCardsTimer_Tick;
+            startCardsTimer.Start();
         }
 
         private void Navigation(object sender, RoutedEventArgs e)
@@ -137,7 +119,8 @@ namespace CasinoRoyale.Windows.Pages
                     int betAmount = Convert.ToInt32(bet.Text);
                     bj.SetBet(betAmount);
                     bj.GenerateCasinoCards();
-                    ShowCards(true, bj.GetHand(true));
+                    //ShowCards(true, bj.GetHand(true));
+                    ShowCards();
                     bj.GenerateCard(false);
                     bj.GenerateCard(false);
                 }
@@ -145,7 +128,7 @@ namespace CasinoRoyale.Windows.Pages
             else if (btnName == "2")
             {
                 Console.WriteLine(bj.GenerateCard(false).Id);
-                ShowCards(false, bj.GetHand(false));
+                //ShowCards(false, bj.GetHand(false));
                 if (!bj.CheckUserScore())
                 {
                     btn_2.IsEnabled = false;
