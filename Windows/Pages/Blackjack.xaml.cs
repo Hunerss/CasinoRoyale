@@ -17,13 +17,12 @@ namespace CasinoRoyale.Windows.Pages
         private static BlackjackOperations bj;
 
         private static List<CardModel> cards;
-        private static List<CardModel> userCards;
-        private static List<CardModel> casinoCards;
+        private static List<Card> userCards;
+        private static List<Card> casinoCards;
 
-        DispatcherTimer timer;
-        DispatcherTimer startCardsTimer;
+        private static DispatcherTimer timer;
+        private static DispatcherTimer startCardsTimer;
 
-        private static Boolean methodBlocker;
         private static int startCards;
         private static int check;
 
@@ -57,7 +56,7 @@ namespace CasinoRoyale.Windows.Pages
                 Console.WriteLine(check + " " + Convert.ToInt32(3/2));
                 if (check % 2 == 0)
                     card.SetTargetPosition(new Point(-45 + (2 - Convert.ToInt32(startCards / 2)) * 95, 60));
-                else                                 
+                else
                     card.SetTargetPosition(new Point(50 + (2 - Convert.ToInt32(startCards / 2)) * 95, 210));
                 check++;
                 Cnv.Children.Add(card);
@@ -119,10 +118,12 @@ namespace CasinoRoyale.Windows.Pages
                     int betAmount = Convert.ToInt32(bet.Text);
                     bj.SetBet(betAmount);
                     bj.GenerateCasinoCards();
+                    bj.GenerateCard(false);
+                    bj.GenerateCard(false);
+                    userCards = bj.GetHand(false);
+                    casinoCards = bj.GetHand(true);
                     //ShowCards(true, bj.GetHand(true));
                     ShowCards();
-                    bj.GenerateCard(false);
-                    bj.GenerateCard(false);
                 }
             }
             else if (btnName == "2")

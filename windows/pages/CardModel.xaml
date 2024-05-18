@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              Height="100" Width="80">
     <Grid Name="MainGrid">
-        <Image Source="/images/cards/reverse.jpg" />
+        <Image Name="background" Source="/images/cards/reverse.jpg" />
     </Grid>
 </UserControl>

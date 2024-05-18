@@ -1,6 +1,10 @@
-﻿using System.Windows;
+﻿using CasinoRoyale.classes;
+using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using static Org.BouncyCastle.Asn1.Cmp.Challenge;
 
 namespace CasinoRoyale.windows.pages
 {
@@ -16,6 +20,12 @@ namespace CasinoRoyale.windows.pages
         public CardModel()
         {
             InitializeComponent();
+        }
+
+        public void SetBackground(Card card)
+        {
+            string link = "pack://application:,,,/images/cards/" + card.Image;
+            background.Source = new BitmapImage(new Uri(link, UriKind.Absolute));
         }
 
         public void SetPosition(double x, double y)

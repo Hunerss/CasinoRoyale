@@ -3,7 +3,7 @@ using System;
 
 namespace CasinoRoyale.classes
 {
-    internal class Card
+    public class Card
     {
         public string Id { get; private set; } // e.g. 2s
         public int Value { get; private set; } // 2
@@ -15,7 +15,7 @@ namespace CasinoRoyale.classes
             Id = $"{cardValue}{suit[0]}";
             Value = cardValue;
             Suit = suit;
-            Image = $"images/{cardValue}{suit[0]}.png";
+            Image = $"{cardValue}{suit[0]}.jpg";
         }
 
 
