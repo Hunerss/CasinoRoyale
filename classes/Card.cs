@@ -17,7 +17,5 @@ namespace CasinoRoyale.classes
             Suit = suit;
             Image = $"{cardValue}{suit[0]}.jpg";
         }
-
-
     }
 }

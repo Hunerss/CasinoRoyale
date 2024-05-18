@@ -12,8 +12,7 @@ namespace CasinoRoyale.classes
         protected int casinoScore = 0;
         protected int userScore = 0;
         protected int bet = 0;
-
-        private Random rnd = new();
+        private readonly Random rnd = new();
 
 
         public BlackjackOperations()
@@ -53,12 +52,21 @@ namespace CasinoRoyale.classes
             return card;
         }
 
-        public void GenerateCasinoCards()
+        public List<Card> GenerateHand(Boolean casino)
         {
-            casinoCards.Clear();
-            GenerateCard(true);
-            GenerateCard(true);
-            DescribeHand(true);
+            if (casino)
+            {
+                casinoCards.Clear();
+                GenerateCard(true);
+                GenerateCard(true);
+            }
+            else
+            {
+                userCards.Clear();
+                GenerateCard(false);
+                GenerateCard(false);
+            }
+            return GetHand(casino);
         }
 
         private void SetCard(Boolean casino, Card card)
@@ -68,74 +76,87 @@ namespace CasinoRoyale.classes
                 casinoCards.Add(card);
             else
                 userCards.Add(card);
+
+            UpdateScore(casino);
         }
 
-        private int CalculateCardValue(Card card, int currentScore)
-        {
-            return card.Value == 1 ? currentScore + 11 <= 21 ? 11 : 1 : card.Value;
-        }
-
-        public void DescribeHand(Boolean casino)
+        private void UpdateScore(Boolean casino)
         {
             List<Card> hand = casino ? casinoCards : userCards;
             int score = 0;
+            int aceCount = 0;
 
             foreach (Card card in hand)
             {
-                Console.Write(card.Id + " - ");
-                if (card.Value > 10)
+                if (card.Value == 14)
+                {
+                    aceCount++;
+                    score += CalculateCardValue(card, score);
+                }
+                else if (card.Value > 10)
                     score += 10;
                 else
-                    score += CalculateCardValue(card, score);
+                    score += card.Value;
             }
-            Console.WriteLine("Score: " + score);
+
+            while (score > 21 && aceCount > 0)
+            {
+                score -= 10;
+                aceCount--;
+            }
+
             if (casino)
                 casinoScore = score;
             else
                 userScore = score;
         }
 
-        public void DescribeHand()
+        private static int CalculateCardValue(Card card, int currentScore)
         {
-            List<Card> hand = casinoCards;
-            int score = 0;
+            return card.Value == 14 ? currentScore + 11 <= 21 ? 11 : 1 : card.Value;
+        }
+
+        public void DescribeHand(Boolean casino)
+        {
+            List<Card> hand = GetHand(casino);
+            int score = casino ? casinoScore : userScore;
 
             foreach (Card card in hand)
             {
-                if (card.Value > 10)
-                    score += 10;
-                else
-                    score += CalculateCardValue(card, score);
+                Console.Write(card.Id + " - ");
             }
-            casinoScore = score;
+            UpdateScore(casino);
+            Console.WriteLine("Score: " + score);
         }
 
         public void DescribeScore(Boolean casino)
         {
-            if (casino)
-                Console.WriteLine(casinoScore);
-            else
-                Console.WriteLine(userScore);
+            Console.WriteLine(casino ? casinoScore : userScore);
         }
 
         private int CheckWin()
         {
             // codes || 0 - casino win | 1 - user win | 2 - draw | 3 - blackjack ||
-            if (casinoScore == 21)
+
+            Console.WriteLine("User score: " + userScore);
+            Console.WriteLine("Casino score: " + casinoScore);
+
+            if (userScore > 21)
                 return 0;
-            else if (casinoScore > 21)
+
+            if (casinoScore > 21)
                 return 1;
-            else if (casinoScore <= userScore)
-            {
-                if (userScore == 21 && userCards.Count == 2)
-                    return 3;
-                else if (casinoScore == userScore)
-                    return 2;
-                else
-                    return 1;
-            }
-            else
+
+            if (userScore == casinoScore)
+                return 2;
+
+            if (userScore == 21 && userCards.Count == 2)
+                return 3;
+
+            if (casinoScore == 21 && casinoCards.Count == 2)
                 return 0;
+
+            return userScore > casinoScore ? 1 : 0;
         }
 
         private Boolean CheckForAs()
@@ -156,17 +177,14 @@ namespace CasinoRoyale.classes
 
             if (userScore > 21)
                 return 0;
-            else
-            {
-                if (casinoScore < 17 || (casinoScore == 17 && CheckForAs()))
-                    while (casinoScore < 17)
-                    {
-                        GenerateCard(true);
-                        DescribeHand();
-                    }
-                DescribeHand(true);
-                return CheckWin();
-            }
+
+            if (casinoScore < 17 || (casinoScore == 17 && CheckForAs()))
+                while (casinoScore < 17)
+                {
+                    GenerateCard(true);
+                    DescribeHand(true);
+                }
+            return CheckWin();
         }
 
         public int InterpreteWin(int win)

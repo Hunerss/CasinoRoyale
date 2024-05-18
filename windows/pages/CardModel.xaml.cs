@@ -17,14 +17,26 @@ namespace CasinoRoyale.windows.pages
         public Point StartPosition;
         public double TimeToTarget;
 
+        private static string BackgroundCardPath;
+        private static string BackgroundReversPath = "pack://application:,,,/images/cards/reverse.jpg";
+
         public CardModel()
         {
             InitializeComponent();
         }
 
+        public void SwichBackground()
+        {
+            if (background.Source == new BitmapImage(new Uri(BackgroundCardPath, UriKind.Absolute)))
+                background.Source = new BitmapImage(new Uri(BackgroundReversPath, UriKind.Absolute));
+            else
+                background.Source = new BitmapImage(new Uri(BackgroundCardPath, UriKind.Absolute));
+        }
+
         public void SetBackground(Card card)
         {
             string link = "pack://application:,,,/images/cards/" + card.Image;
+            BackgroundCardPath = link;
             background.Source = new BitmapImage(new Uri(link, UriKind.Absolute));
         }
 
@@ -36,9 +48,11 @@ namespace CasinoRoyale.windows.pages
 
         public Point GetPosition()
         {
-            Point p = new Point();
-            p.X = (double)GetValue(Window.LeftProperty) + MainGrid.ActualWidth / 2;
-            p.Y = (double)GetValue(Window.TopProperty) + MainGrid.ActualHeight / 2;
+            Point p = new()
+            {
+                X = (double)GetValue(Window.LeftProperty) + MainGrid.ActualWidth / 2,
+                Y = (double)GetValue(Window.TopProperty) + MainGrid.ActualHeight / 2
+            };
             return p;
         }
 

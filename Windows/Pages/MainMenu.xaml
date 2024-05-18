@@ -35,7 +35,7 @@
                     </Grid.RowDefinitions>
                     <Button IsEnabled="False" Name="btn_1" Grid.Row="0" Click="Navigation">Poker</Button>
                     <Button Name="btn_2" Grid.Row="1" Click="Navigation">Blackjack</Button>
-                    <Button IsEnabled="False" Name="btn_3" Grid.Row="2" Click="Navigation">Roulette</Button>
+                    <Button Name="btn_3" Grid.Row="2" Click="Navigation">Roulette</Button>
                     <Button Name="btn_4" Grid.Row="3" Click="Navigation">Slot Machine</Button>
                 </Grid>
                 <Grid Grid.Column="1">
