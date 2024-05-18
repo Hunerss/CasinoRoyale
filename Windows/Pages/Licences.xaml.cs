@@ -37,7 +37,3 @@ namespace CasinoRoyale.Windows.Pages
         }
     }
 }
-
-/*
- 
- */

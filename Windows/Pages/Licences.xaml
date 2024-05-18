@@ -25,24 +25,24 @@
                     <TextBlock.Background>
                         <SolidColorBrush Color="Gray" Opacity="0.3"/>
                     </TextBlock.Background>
-                        <LineBreak/>Licencja użytkowania dla aplikacji gry kasynowej<LineBreak/>
-                        <LineBreak/>Definicje<LineBreak/>
-                        <LineBreak/>W niniejszej umowie, "Aplikacja" oznacza grę kasynową, w tym wszelkie związane z nią oprogramowanie, materiały, pliki, dane i treści. "Licencjobiorca" oznacza osobę fizyczną lub podmiot prawnie uprawniony do korzystania z Aplikacji zgodnie z niniejszą umową. "Wydawca" oznacza podmiot lub firmę, która udostępnia Aplikację.<LineBreak/>
-                        <LineBreak/>Licencja<LineBreak/>
-                        <LineBreak/>Wydawca udziela Licencjobiorcy ograniczonej, nieprzenośnej, niepodzielnej i nieodpłatnej licencji na korzystanie z Aplikacji zgodnie z warunkami niniejszej umowy. Licencjobiorca nie ma prawa do sprzedaży, sublicencji, dystrybucji ani innej formy przeniesienia praw związanych z Aplikacją.<LineBreak/>
-                        <LineBreak/>Ograniczenia użytkowania<LineBreak/>
-                        <LineBreak/>Licencjobiorca nie ma prawa do:<LineBreak/>
-                            <LineBreak/>Modyfikowania, dostosowywania, dekompilowania ani odwracania inżynierii Aplikacji.<LineBreak/>
-                            <LineBreak/>Usuwania, zmieniania ani zakłócania oznaczeń praw autorskich, znaków wodnych lub innych informacji o prawach własności intelektualnej zawartych w Aplikacji.<LineBreak/>
-                            <LineBreak/>Korzystania z Aplikacji w sposób sprzeczny z prawem lub szkodliwy dla innych użytkowników lub osób trzecich.<LineBreak/>
-                        <LineBreak/>Prawa własności intelektualnej<LineBreak/>
-                        <LineBreak/>Wydawca zachowuje pełne prawo własności intelektualnej do Aplikacji, w tym praw autorskich, znaków towarowych i innych praw własności intelektualnej. Licencjobiorca nie nabiera żadnych praw własności intelektualnej do Aplikacji ani do jakiejkolwiek jej części.<LineBreak/>
-                        <LineBreak/>Gwarancje<LineBreak/>
-                        <LineBreak/>Aplikacja jest udostępniana "w stanie, w jakim się znajduje", bez żadnych wyraźnych ani domniemanych gwarancji, w tym gwarancji jakości, przydatności do określonego celu ani niezawodności. Licencjobiorca korzysta z Aplikacji na własne ryzyko.<LineBreak/>
-                        <LineBreak/>Ograniczenie odpowiedzialności<LineBreak/>
-                        <LineBreak/>W żadnym przypadku Wydawca nie będzie odpowiedzialny wobec Licencjobiorcy za żadne bezpośrednie, pośrednie, przypadkowe, następcze ani karne szkody wynikające z korzystania z Aplikacji lub związane z nią.<LineBreak/>
-                        <LineBreak/>Postanowienia ogólne<LineBreak/>
-                        <LineBreak/>Niniejsza umowa stanowi całość porozumienia między stronami w odniesieniu do korzystania z Aplikacji i zastępuje wszelkie wcześniejsze lub współczesne ustalenia, ustne lub pisemne, dotyczące tej samej kwestii. Umowa podlega prawu obowiązującemu w kraju, w którym została zawarta.<LineBreak/>
+                        <LineBreak/>License Agreement for Casino Game Application<LineBreak/>
+                            <LineBreak/>Definitions<LineBreak/>
+                                <LineBreak/>In this agreement, "Application" means the casino game, including all related software, materials, files, data, and content. "Licensee" means an individual or legal entity authorized to use the Application under this agreement. "Publisher" means the entity or company providing the Application.<LineBreak/>
+                            <LineBreak/>License<LineBreak/>
+                                <LineBreak/>Publisher grants Licensee a limited, non-transferable, non-sublicensable, and non-fee license to use the Application in accordance with the terms of this agreement. Licensee does not have the right to sell, sublicense, distribute, or otherwise transfer any rights associated with the Application.<LineBreak/>
+                            <LineBreak/>Usage Restrictions<LineBreak/>
+                                <LineBreak/>Licensee is not permitted to:<LineBreak/>
+                                    <LineBreak/>Modify, adapt, decompile, or reverse engineer the Application.<LineBreak/>
+                                    <LineBreak/>Remove, alter, or interfere with copyright notices, watermarks, or other intellectual property rights information contained in the Application.<LineBreak/>
+                                    <LineBreak/>Use the Application in a manner contrary to law or harmful to other users or third parties.<LineBreak/>
+                            <LineBreak/>Intellectual Property Rights<LineBreak/>
+                                <LineBreak/>Publisher retains full intellectual property rights to the Application, including copyrights, trademarks, and other intellectual property rights. Licensee does not acquire any intellectual property rights to the Application or any part thereof.<LineBreak/>
+                            <LineBreak/>Warranties<LineBreak/>
+                                <LineBreak/>The Application is provided "as is," without any express or implied warranties, including warranties of quality, fitness for a particular purpose, or reliability. Licensee uses the Application at their own risk.<LineBreak/>
+                            <LineBreak/>Limitation of Liability<LineBreak/>
+                                <LineBreak/>In no event shall Publisher be liable to Licensee for any direct, indirect, incidental, consequential, or punitive damages arising from the use of the Application or related to it.<LineBreak/>
+                            <LineBreak/>General Provisions<LineBreak/>
+                                <LineBreak/>This agreement constitutes the entire agreement between the parties regarding the use of the Application and supersedes any prior or contemporaneous agreements, oral or written, relating to the same subject matter. The agreement is governed by the laws of the country in which it is made.<LineBreak/>
                 </TextBlock>
             </ScrollViewer>
         </Grid>
