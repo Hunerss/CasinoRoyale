@@ -22,23 +22,15 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "1")
-                window.frame.NavigationService.Navigate(new Poker(window));
-            else if (btnName == "2")
                 window.frame.NavigationService.Navigate(new Blackjack(window));
-            else if (btnName == "3")
+            else if (btnName == "2")
                 window.frame.NavigationService.Navigate(new Roulette(window));
-            else if (btnName == "4")
+            else if (btnName == "3")
                 window.frame.NavigationService.Navigate(new Slot(window));
-            else if (btnName == "5")
+            else if (btnName == "4")
                 window.frame.NavigationService.Navigate(new Scores(window));
-            else if (btnName == "6")
-                window.frame.NavigationService.Navigate(new Bank(window));
-            else if (btnName == "7")
-                window.frame.NavigationService.Navigate(new Licences(window));
-            else if (btnName == "8")
+            else if (btnName == "5")
                 window.frame.NavigationService.Navigate(new AboutUs(window));
-            else if (btnName == "9")
-                window.frame.NavigationService.Navigate(new Welcome(window));
             else
                 Console.WriteLine("Welcome - error log - Navigation button number to bit - " + btnName);
         }
