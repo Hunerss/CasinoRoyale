@@ -9,19 +9,46 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+
+        <Polygon Margin="20 0 0 0" Points="0,0 80,40 0,80" Fill="Red" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
         <Grid Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="reelPanel" Background="#80C0C0C0">
-                <Image Source="/images/bell.png" Name="reel1" Width="100" Height="100" Margin="10"/>
-                <Image Source="/images/plum.png" Name="reel2" Width="100" Height="100" Margin="10"/>
-                <Image Source="/images/lemon.png" Name="reel3" Width="100" Height="100" Margin="10"/>
-                <Image Source="/images/star.png" Name="reel4" Width="100" Height="100" Margin="10"/>
-                <Image Source="/images/seven.png" Name="reel5" Width="100" Height="100" Margin="10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="topReelPanel" Background="#80C0C0C0">
+                <Image Source="/images/bell.png" Name="topReel1" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/plum.png" Name="topReel2" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/lemon.png" Name="topReel3" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/star.png" Name="topReel4" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/seven.png" Name="topReel5" Width="80" Height="80" Margin="10"/>
             </StackPanel>
         </Grid>
+
         <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="reelPanel" Background="#80C0C0C0">
+                <Image Source="/images/bell.png" Name="reel1" Width="90" Height="90" Margin="10"/>
+                <Image Source="/images/plum.png" Name="reel2" Width="90" Height="90" Margin="10"/>
+                <Image Source="/images/lemon.png" Name="reel3" Width="90" Height="90" Margin="10"/>
+                <Image Source="/images/star.png" Name="reel4" Width="90" Height="90" Margin="10"/>
+                <Image Source="/images/seven.png" Name="reel5" Width="90" Height="90" Margin="10"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Rząd pod głównym -->
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="bottomReelPanel" Background="#80C0C0C0">
+                <Image Source="/images/bell.png" Name="bottomReel1" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/plum.png" Name="bottomReel2" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/lemon.png" Name="bottomReel3" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/star.png" Name="bottomReel4" Width="80" Height="80" Margin="10"/>
+                <Image Source="/images/seven.png" Name="bottomReel5" Width="80" Height="80" Margin="10"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -39,7 +66,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Slot</TextBlock>
+            <TextBlock Grid.Column="1" FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Slot Machine</TextBlock>
             <TextBlock Grid.Column="2" FontSize="30px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Name="chips" Text="Chips: "/>
         </Grid>
     </Grid>

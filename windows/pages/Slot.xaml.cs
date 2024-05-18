@@ -42,13 +42,17 @@ namespace CasinoRoyale.windows.pages
             "pack://application:,,,/images/star.png"
         };
 
+        private List<string> availableSymbols = new();
 
         public Slot(MainWindow win)
         {
             InitializeComponent();
             window = win;
-            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Interval = TimeSpan.FromMilliseconds(160);
             timer.Tick += Timer_Tick;
+            DisplayBeginingReels();
+
+            availableSymbols.AddRange(symbols);
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -106,6 +110,28 @@ namespace CasinoRoyale.windows.pages
             MessageBox.Show(message += betAmount);
         }
 
+        private void DisplayBeginingReels()
+        {
+            reel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            reel2.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            reel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            reel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            reel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+
+            topReel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel2.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+
+            bottomReel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel2.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+        }
+
+
         private void UpdateReels()
         {
             reel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
@@ -113,6 +139,18 @@ namespace CasinoRoyale.windows.pages
             reel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
             reel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
             reel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+
+            topReel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel2.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+
+            bottomReel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel2.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
         }
 
         private void DisplayFinalReelValues()
@@ -122,6 +160,19 @@ namespace CasinoRoyale.windows.pages
             reel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
             reel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
             reel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+
+            topReel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel2.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            topReel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+
+            bottomReel1.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel2.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel3.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel4.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+            bottomReel5.Source = new BitmapImage(new Uri(symbols[random.Next(symbols.Length)], UriKind.Absolute));
+
         }
 
         private void Navigation(object sender, RoutedEventArgs e)
