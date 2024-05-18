@@ -12,7 +12,9 @@
             <RowDefinition Height="4*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-
+        <Canvas x:Name="cns" Grid.Row="1">
+            <Image Name="wheel" Width="300" Canvas.Left="225" Source="/images/wheel.png" />
+        </Canvas>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -24,7 +26,7 @@
             </Grid.ColumnDefinitions>
             <Button Name="btn_0" Grid.Column="0" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Go Back</Button>
             <TextBox Name="bet" Grid.Column="1" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalAlignment="Center">Bet</TextBox>
-            <Button IsEnabled="False" Name="btn_1" Grid.Column="2" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Start</Button>
+            <Button Name="btn_1" Grid.Column="2" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Start</Button>
             <Button IsEnabled="False" Name="btn_2" Grid.Column="3" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Hit</Button>
             <Button IsEnabled="False" Name="btn_3" Grid.Column="4" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Double</Button>
             <Button IsEnabled="False" Name="btn_4" Grid.Column="5" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Stand</Button>

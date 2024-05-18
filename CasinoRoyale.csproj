@@ -71,6 +71,7 @@
     <None Remove="images\seven.png" />
     <None Remove="images\star.png" />
     <None Remove="images\sym_5.png" />
+    <None Remove="images\wheel.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -251,6 +252,9 @@
     <Resource Include="images\plum.png" />
     <Resource Include="images\seven.png" />
     <Resource Include="images\star.png" />
+    <Resource Include="images\wheel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
