@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace CasinoRoyale.Windows.Pages
@@ -24,8 +14,19 @@ namespace CasinoRoyale.Windows.Pages
         private static MainWindow window;
         private DispatcherTimer rotationTimer;
         private RotateTransform rotateTransform;
+        private Random rnd = new();
+
         private int currentAngle;
         private int totalRotations;
+        private int maxRotations;
+        private double ballAngle;
+        private double ballRadius = 85;
+
+        private readonly int[] wheelNumbers = new int[]
+        {
+            0, 26, 3, 35, 12, 28, 7, 29, 18, 22, 9, 31, 14, 20, 1, 33, 16, 24, 5, 10, 23, 8, 30, 11, 36, 13, 27, 6, 34, 17, 25, 2, 21, 4, 19, 15, 32
+        };
+
         public Roulette(MainWindow win)
         {
             window = win;
@@ -34,13 +35,16 @@ namespace CasinoRoyale.Windows.Pages
             rotateTransform = new RotateTransform
             {
                 CenterX = 150,
-                CenterY = 150 
+                CenterY = 150
             };
+
+            currentAngle = rnd.Next(0, 360);
+            rotateTransform.Angle = currentAngle;
             wheel.RenderTransform = rotateTransform;
 
             rotationTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(100)
+                Interval = TimeSpan.FromMilliseconds(160)
             };
             rotationTimer.Tick += RotateWheel;
         }
@@ -54,13 +58,57 @@ namespace CasinoRoyale.Windows.Pages
                 totalRotations++;
             }
 
+            /*
+            6 - 10
+            25 - 8/30
+            35 - 21
+             
+             */
+
             rotateTransform.Angle = currentAngle;
 
-            if (totalRotations >= 3)
+            if (currentAngle == 0)
+                rotationTimer.Interval += TimeSpan.FromMilliseconds(10);
+
+            ballAngle -= 25;
+            if (ballAngle < 0)
+                ballAngle += 360;
+
+            double ballX = 150 + ballRadius * Math.Cos(ballAngle * Math.PI / 180);
+            double ballY = 150 + ballRadius * Math.Sin(ballAngle * Math.PI / 180);
+            Canvas.SetLeft(ball, ballX - ball.Width / 2);
+            Canvas.SetTop(ball, ballY - ball.Height / 2);
+
+            if (totalRotations >= maxRotations)
             {
                 rotationTimer.Stop();
                 totalRotations = 0;
+                int ballPosition = GetBallPosition();
+                MessageBox.Show("Ball landed on: " + ballPosition);
             }
+            else
+            {
+                int ballPosition = GetBallPosition();
+                Console.WriteLine("Ball on position: " + ballPosition);
+            }
+        }
+
+        private int GetBallPosition()
+        {
+            double sectorAngle = 360.0 / wheelNumbers.Length;
+            double normalizedAngle = currentAngle % 360;
+            double normalizedBall = ballAngle % 360;
+            double normalizedBallAngle = (360 - (normalizedBall + normalizedAngle)) % 360;
+            if (normalizedBallAngle < 0)
+                normalizedBallAngle += 360;
+            int sectorIndex = (int)(normalizedBallAngle / sectorAngle);
+            if (sectorIndex >= wheelNumbers.Length)
+                sectorIndex -= wheelNumbers.Length;
+            if (sectorIndex - 8 < 0)
+                sectorIndex = wheelNumbers.Length - 9;
+            else
+                sectorIndex -= 8;
+            return wheelNumbers[sectorIndex];
         }
 
         private void Navigation(object sender, RoutedEventArgs e)
@@ -70,7 +118,9 @@ namespace CasinoRoyale.Windows.Pages
                 window.frame.NavigationService.Navigate(new Welcome(window));
             if (btnName == "1")
             {
-                currentAngle = 0;
+                ballAngle = rnd.Next(0, 360);
+                maxRotations = rnd.Next(3, 7);
+                rotationTimer.Interval = TimeSpan.FromMilliseconds(30);
                 totalRotations = 0;
                 rotationTimer.Start();
             }
