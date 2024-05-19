@@ -24,8 +24,8 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="btn_0" Grid.Column="0" Width="150px" Height="40px" FontSize="25px" Click="Navigation">Go back</Button>
-                <Button Name="btn_1" Grid.Column="1" Width="150px" Height="40px" FontSize="25px" Click="Navigation">Register</Button>
+                <Button Name="btn_0" Grid.Column="0" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Go back</Button>
+                <Button Name="btn_1" Grid.Column="1" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Register</Button>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -59,11 +59,11 @@
                     <DatePicker Name="txb_2" Grid.Row="2" Height="40px" FontSize="20px" VerticalContentAlignment="Center"></DatePicker>
                     <DockPanel Grid.Row="3" VerticalAlignment="Center">
                         <CheckBox Name="chb_0" Margin="15 0 0 0" Content="Accept" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                        <Button Name="btn_2" Grid.Row="4" Width="60px" Height="40px" FontSize="20px" Click="Navigation">Read</Button>
+                        <Button Name="btn_2" Grid.Row="4" Width="60px" Height="40px" FontSize="20px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Read</Button>
                     </DockPanel>
                     <DockPanel Grid.Row="4" VerticalAlignment="Center">
                         <CheckBox Name="chb_1" Margin="15 0 0 0" Content="Accept" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                        <Button Name="btn_3" Grid.Row="4" Width="60px" Height="40px" FontSize="20px" Click="Navigation">Read</Button>
+                        <Button Name="btn_3" Grid.Row="4" Width="60px" Height="40px" FontSize="20px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Read</Button>
                     </DockPanel>
                 </Grid>
             </Grid>

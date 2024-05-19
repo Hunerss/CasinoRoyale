@@ -19,7 +19,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Licences</TextBlock>
-            <Button Name="btn_0" Grid.Row="2" Click="Navigation">Out</Button>
+            <Button Name="btn_0" Grid.Row="2" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Go back</Button>
             <ScrollViewer Grid.Row="1">
                 <TextBlock TextWrapping="Wrap" Margin="15" Padding="5">
                     <TextBlock.Background>

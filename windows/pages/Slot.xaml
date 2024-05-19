@@ -55,10 +55,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="btn_0" Grid.Column="0" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Go Back</Button>
-            <TextBox Name="bet" Grid.Column="1" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalAlignment="Center">Bet</TextBox>
-            <Button Name="btn_1" Grid.Column="2" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Set Bet</Button>
-            <Button IsEnabled="False" Name="btn_2" Grid.Column="3" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Spin</Button>
+            <Button Name="btn_0" Grid.Column="0" Width="110px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Go Back</Button>
+            <TextBox Name="bet" Grid.Column="1" Width="110px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">Bet</TextBox>
+            <Button Name="btn_1" Grid.Column="2" Width="110px" FontSize="25px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Set Bet</Button>
+            <Button IsEnabled="False" Name="btn_2" Grid.Column="3" Width="110px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Spin</Button>
         </Grid>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>

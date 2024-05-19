@@ -46,3 +46,30 @@ namespace CasinoRoyale.windows.pages
         }
     }
 }
+
+/*
+ private void UpdateScore(Boolean casino)
+        {
+            List<Card> hand = casino ? casinoCards : userCards;
+            int score = 0;
+            int aceCount = 0;
+
+            foreach (Card card in hand)
+            {
+                if (card.Value == 14)
+                {
+                    aceCount++;
+                    score += CalculateCardValue(card, score);
+                }
+                else if (card.Value > 10)
+                    score += 10;
+                else
+                    score += card.Value;
+            }
+
+            if (casino)
+                casinoScore = score;
+            else
+                userScore = score;
+        }
+ */

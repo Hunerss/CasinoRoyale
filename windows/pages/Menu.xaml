@@ -19,14 +19,14 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Welcome to Casino Royale</TextBlock>
-            <Button Name="btn_9" Grid.Row="2" Click="Navigation">Out</Button>
+            <Button Name="btn_9" Grid.Row="2" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Go back</Button>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button Name="btn_1" Grid.Row="0" Click="Navigation">Sing in</Button>
-                <Button Name="btn_2" Grid.Row="1" Click="Navigation">Sing up</Button>
+                <Button Name="btn_1" Grid.Row="0" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Sing in</Button>
+                <Button Name="btn_2" Grid.Row="1" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Sing up</Button>
             </Grid>
         </Grid>
     </Grid>
