@@ -12,25 +12,101 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Canvas x:Name="cns" Grid.Row="1">
-            <Image Name="wheel" Width="300" Height="300" Canvas.Left="0" Canvas.Top="0" Source="/images/wheel.png" />
-            <Ellipse Name="ball" Width="10" Height="10" Fill="Silver" Canvas.Left="153" Canvas.Top="65"/>
-        </Canvas>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="cns" Grid.Column="0">
+                <Image Name="wheel" Width="300" Height="300" Canvas.Left="0" Canvas.Top="0" Source="/images/wheel.png" />
+                <Ellipse Name="ball" Width="10" Height="10" Fill="Silver" Canvas.Left="153" Canvas.Top="65"/>
+            </Canvas>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <!--numbers-->
+                <Button Click="BetOperations" Name="bet_0" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Content="0" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Green" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_1" Grid.Row="2" Grid.Column="1" Content="1" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_2" Grid.Row="1" Grid.Column="1" Content="2" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_3" Grid.Row="0" Grid.Column="1" Content="3" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_4" Grid.Row="2" Grid.Column="2" Content="4" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_5" Grid.Row="1" Grid.Column="2" Content="5" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_6" Grid.Row="0" Grid.Column="2" Content="6" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_7" Grid.Row="2" Grid.Column="3" Content="7" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_8" Grid.Row="1" Grid.Column="3" Content="8" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_9" Grid.Row="0" Grid.Column="3" Content="9" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_10" Grid.Row="2" Grid.Column="4" Content="10" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_11" Grid.Row="1" Grid.Column="4" Content="11" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_12" Grid.Row="0" Grid.Column="4" Content="12" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_13" Grid.Row="2" Grid.Column="5" Content="13" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_14" Grid.Row="1" Grid.Column="5" Content="14" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_15" Grid.Row="0" Grid.Column="5" Content="15" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_16" Grid.Row="2" Grid.Column="6" Content="16" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_17" Grid.Row="1" Grid.Column="6" Content="17" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_18" Grid.Row="0" Grid.Column="6" Content="18" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_19" Grid.Row="2" Grid.Column="7" Content="19" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_20" Grid.Row="1" Grid.Column="7" Content="20" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_21" Grid.Row="0" Grid.Column="7" Content="21" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_22" Grid.Row="2" Grid.Column="8" Content="22" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_23" Grid.Row="1" Grid.Column="8" Content="23" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_24" Grid.Row="0" Grid.Column="8" Content="24" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_25" Grid.Row="2" Grid.Column="9" Content="25" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_26" Grid.Row="1" Grid.Column="9" Content="26" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_27" Grid.Row="0" Grid.Column="9" Content="27" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_28" Grid.Row="2" Grid.Column="10" Content="28" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_29" Grid.Row="1" Grid.Column="10" Content="29" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_30" Grid.Row="0" Grid.Column="10" Content="30" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_31" Grid.Row="2" Grid.Column="11" Content="31" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_32" Grid.Row="1" Grid.Column="11" Content="32" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_33" Grid.Row="0" Grid.Column="11" Content="33" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_34" Grid.Row="2" Grid.Column="12" Content="34" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_35" Grid.Row="1" Grid.Column="12" Content="35" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_36" Grid.Row="0" Grid.Column="12" Content="36" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" FontFamily="Bodoni MT" Foreground="White"/>
+                <!--groups-->
+                <Button Click="BetOperations" Name="bet_37" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" Content="1st12" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_38" Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="4" Content="2st12" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_39" Grid.Column="9" Grid.Row="3" Grid.ColumnSpan="4" Content="3st12" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="Bodoni MT" Foreground="White"/>
+
+                <Button Click="BetOperations" Name="bet_40" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="1to18" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_41" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Content="EVEN" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_42" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="2" Background="Red" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_43" Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="2" Background="Black" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_44" Grid.Column="9" Grid.Row="4" Grid.ColumnSpan="2" Content="ODD" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="Bodoni MT" Foreground="White"/>
+                <Button Click="BetOperations" Name="bet_45" Grid.Column="11" Grid.Row="4" Grid.ColumnSpan="2" Content="19to36" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="Bodoni MT" Foreground="White"/>
+                
+            </Grid>
+        </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="btn_0" Grid.Column="0" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Go Back</Button>
-            <TextBox Name="bet" Grid.Column="1" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalAlignment="Center">Bet</TextBox>
-            <Button Name="btn_1" Grid.Column="2" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Start</Button>
-            <Button IsEnabled="False" Name="btn_2" Grid.Column="3" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Hit</Button>
-            <Button IsEnabled="False" Name="btn_3" Grid.Column="4" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Double</Button>
-            <Button IsEnabled="False" Name="btn_4" Grid.Column="5" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Stand</Button>
+            <Button Name="btn_0" Grid.Column="0" Width="100px" Height="40px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Go Back</Button>
+            <TextBox Name="setBet" Grid.Column="1" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Bet</TextBox>
+            <Button Name="btn_1" Grid.Column="2" Width="100px" Height="40px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Start</Button>
+            <TextBox IsEnabled="False" Name="allBet" Grid.Column="3" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
         </Grid>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
