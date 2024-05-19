@@ -1,6 +1,7 @@
 ﻿using CasinoRoyale.classes;
 using CasinoRoyale.windows.pages;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -93,6 +94,11 @@ namespace CasinoRoyale.Windows.Pages
                 if (check % 2 == 0)
                 {
                     card.SetBackground(casinoCards[casino]);
+                    if (casino == 0)
+                    {
+                        Console.WriteLine("Techo kitty");
+                        card.SwichBackground();
+                    }
                     casino++;
                     card.SetTargetPosition(new Point(-45 + (2 - Convert.ToInt32(startCards / 2)) * 95, 60));
                 }
@@ -211,6 +217,7 @@ namespace CasinoRoyale.Windows.Pages
             }
             else if (btnName == "4")
             {
+                ((CardModel)Cnv.Children[3]).SwichBackground();
                 score = bj.Game();
                 Console.WriteLine("Game scoer " + score);
                 casinoCards = bj.GetHand(true);

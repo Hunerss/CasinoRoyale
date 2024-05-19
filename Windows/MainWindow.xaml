@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CasinoRoyale"
-        mc:Ignorable="d"
         Icon="/images/casino-icon.png"
+        mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Casino Royale" Height="450" Width="800">
     <Grid Background="#35654d">
         <Frame x:Name="frame" NavigationUIVisibility="Hidden"/>
 

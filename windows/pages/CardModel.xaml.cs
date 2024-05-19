@@ -20,6 +20,9 @@ namespace CasinoRoyale.windows.pages
         private static string BackgroundCardPath;
         private static string BackgroundReversPath = "pack://application:,,,/images/cards/reverse.jpg";
 
+        private static BitmapImage BackgroundReverse = new(new Uri(BackgroundReversPath, UriKind.Absolute));
+        private static BitmapImage BackgroundCard;
+
         public CardModel()
         {
             InitializeComponent();
@@ -27,17 +30,35 @@ namespace CasinoRoyale.windows.pages
 
         public void SwichBackground()
         {
-            if (background.Source == new BitmapImage(new Uri(BackgroundCardPath, UriKind.Absolute)))
-                background.Source = new BitmapImage(new Uri(BackgroundReversPath, UriKind.Absolute));
+            Console.WriteLine(background.Source.ToString());
+            Console.WriteLine(BackgroundCard.ToString());
+            Console.WriteLine(BackgroundReverse.ToString());
+            if (background.Source == BackgroundCard)
+                background.Source = BackgroundReverse;
             else
-                background.Source = new BitmapImage(new Uri(BackgroundCardPath, UriKind.Absolute));
+                background.Source = BackgroundCard;
+
+            //if (background.Source is BitmapImage currentImage)
+            //{
+            //    if (currentImage.UriSource.ToString() == BackgroundCardPath)
+            //    {
+            //        Console.WriteLine("Opt 1 - reverse");
+            //        background.Source = BackgroundReverse;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Opt 2 - card");
+            //        background.Source = BackgroundCard;
+            //    }
+            //}
         }
 
         public void SetBackground(Card card)
         {
             string link = "pack://application:,,,/images/cards/" + card.Image;
             BackgroundCardPath = link;
-            background.Source = new BitmapImage(new Uri(link, UriKind.Absolute));
+            BackgroundCard = new(new Uri(link, UriKind.Absolute));
+            background.Source = BackgroundCard;
         }
 
         public void SetPosition(double x, double y)
