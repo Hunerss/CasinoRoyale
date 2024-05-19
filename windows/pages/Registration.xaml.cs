@@ -81,7 +81,7 @@ namespace CasinoRoyale.windows.pages
             {
                 DateTime? selectedDate = txb_2.SelectedDate;
                 if(!selectedDate.HasValue)
-                    selectedDate.Value = DateTime.Now;
+                    txb_2.SelectedDate = DateTime.Now;
                 window.frame.NavigationService.Navigate(new Licences(window, txb_0.Text, txb_1.Password, selectedDate.Value));
             }
             else if (btnName == "3")

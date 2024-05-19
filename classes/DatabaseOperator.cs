@@ -4,6 +4,7 @@ using Org.BouncyCastle.Crypto.Digests;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Windows.Controls;
 using System.Xml.Linq;
 
 namespace ToDoList.classes
@@ -13,6 +14,54 @@ namespace ToDoList.classes
         private static string db_adress = "SERVER=localhost;DATABASE=casino_royale;UID=root;PASSWORD=;ConvertZeroDateTime=True;";
         private static MySqlConnection connector = new(db_adress);
         // admin password admin in sha3-512
+
+        public static void ShowScores(ListBox listBox)
+        {
+            try
+            {
+                using MySqlConnection connection = new MySqlConnection(db_adress);
+                connection.Open();
+                string query = "SELECT u.login, w.game, w.win, w.date FROM wins w JOIN users u ON w.user_id = u.id ORDER BY w.id DESC";
+                MySqlCommand command = new(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                listBox.Items.Clear();
+                while (reader.Read())
+                {
+                    string username = reader.GetString(0);
+                    int gameId = reader.GetInt32(1);
+                    int winAmount = reader.GetInt32(2);
+                    DateTime winDate = reader.GetDateTime(3);
+
+                    string gameName = InterpretGameById(gameId);
+
+                    string formattedData = $"{username} - {gameName} - Amount: {winAmount} - Date: {winDate}";
+
+                    listBox.Items.Add(formattedData);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error occurred while retrieving data: " + ex.Message);
+            }
+        }
+
+        private static string InterpretGameById(int gameId)
+        {
+            switch (gameId)
+            {
+                case 1:
+                    return "Blackjack";
+                case 2:
+                    return "Roulette";
+                case 3:
+                    return "Slot Machine";
+                default:
+                    return "Unknown";
+            }
+        }
 
         private Boolean ModifyChips(int id, int change)
         {

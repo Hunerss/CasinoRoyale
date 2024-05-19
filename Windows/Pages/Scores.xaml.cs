@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ToDoList.classes;
 
 namespace CasinoRoyale.Windows.Pages
 {
@@ -33,9 +23,14 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
-                window.frame.NavigationService.Navigate(new Welcome(window));
+                window.frame.NavigationService.Navigate(new MainMenu(window, login));
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
+        }
+
+        private void Window_loaded(object sender, RoutedEventArgs e)
+        {
+            DatabaseOperator.ShowScores(EventListBox);
         }
     }
 }
