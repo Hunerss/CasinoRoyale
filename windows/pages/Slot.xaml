@@ -67,7 +67,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="1" FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Slot Machine</TextBlock>
-            <TextBlock Grid.Column="2" FontSize="30px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Name="chips" Text="Chips: "/>
+            <DockPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock  FontSize="30px" TextAlignment="Center" Text="Chips: "/>
+                <TextBlock  FontSize="30px" TextAlignment="Center" Name="chips"/>
+            </DockPanel>
         </Grid>
     </Grid>
 </UserControl>

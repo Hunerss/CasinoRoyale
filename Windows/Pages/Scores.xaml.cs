@@ -21,9 +21,11 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Scores : UserControl
     {
         private static MainWindow window;
-        public Scores(MainWindow win)
+        private string login;
+        public Scores(MainWindow win, string login)
         {
             window = win;
+            this.login = login;
             InitializeComponent();
         }
 

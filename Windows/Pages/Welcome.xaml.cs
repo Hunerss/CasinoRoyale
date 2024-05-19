@@ -1,4 +1,5 @@
 ﻿using CasinoRoyale.classes;
+using CasinoRoyale.windows.pages;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace CasinoRoyale.Windows.Pages
 
         private void Navigation(object sender, RoutedEventArgs e)
         {
-            window.frame.NavigationService.Navigate(new MainMenu(window));
+            window.frame.NavigationService.Navigate(new MidMenu(window));
         }
     }
 }

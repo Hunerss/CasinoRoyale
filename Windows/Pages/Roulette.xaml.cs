@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
+using ToDoList.classes;
 
 namespace CasinoRoyale.Windows.Pages
 {
@@ -18,7 +19,10 @@ namespace CasinoRoyale.Windows.Pages
         private DispatcherTimer rotationTimer;
         private RotateTransform rotateTransform;
         private Random rnd = new();
+        private static DatabaseOperator dbo = new();
         private RouletteOperations ro;
+
+        private string login;
 
         private int currentAngle;
         private int totalRotations;
@@ -34,12 +38,15 @@ namespace CasinoRoyale.Windows.Pages
         private List<int> bettedNumbers;
         private List<int> bettedNumbersBets;
 
-        public Roulette(MainWindow win)
+        public Roulette(MainWindow win, string login)
         {
             InitializeComponent();
             bettedNumbers = new List<int>();
             bettedNumbersBets = new List<int>();
             window = win;
+            this.login = login;
+
+            chips.Text = dbo.GetChips(login).ToString();
 
             rotateTransform = new RotateTransform
             {
@@ -93,6 +100,10 @@ namespace CasinoRoyale.Windows.Pages
                     MessageBox.Show("Ball landed on: " + ballPosition + Environment.NewLine + "You won " + wonBet + " form your bets");
                 else
                     MessageBox.Show("Ball landed on: " + ballPosition + Environment.NewLine + "You lost all your bets");
+
+                dbo.Add(login, 2, wonBet - Convert.ToInt32(allBet.Text));
+                dbo.UpdateChips(login, wonBet - Convert.ToInt32(allBet.Text));
+                chips.Text = dbo.GetChips(login).ToString();
                 Clear();
             }
             else
@@ -124,13 +135,13 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
-                window.frame.NavigationService.Navigate(new Welcome(window));
+                window.frame.NavigationService.Navigate(new MainMenu(window, login));
             if (btnName == "1")
             {
 
                 string setBetCheck = setBet.Text;
                 string allBetCheck = allBet.Text;
-                if (CheckBet(setBetCheck) && CheckBet(allBetCheck))
+                if (CheckBet(setBetCheck) && CheckBet(allBetCheck) && !CheckUserAccount())
                 {
                     setBet.IsEnabled = false;
                     ro = new(bettedNumbers, bettedNumbersBets);
@@ -140,7 +151,9 @@ namespace CasinoRoyale.Windows.Pages
                     totalRotations = 0;
                     rotationTimer.Start();
                 }
-
+                else
+                    if (CheckUserAccount())
+                        Clear();
             }
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
@@ -223,8 +236,14 @@ namespace CasinoRoyale.Windows.Pages
             return check;
         }
 
+        private Boolean CheckUserAccount()
+        {
+            return Convert.ToInt32(allBet.Text) >= dbo.GetChips(login);
+        }
+
         private void Clear()
         {
+            chips.Text = dbo.GetChips(login).ToString();
             bet_0.IsEnabled = true;
             bet_1.IsEnabled = true;
             bet_2.IsEnabled = true;

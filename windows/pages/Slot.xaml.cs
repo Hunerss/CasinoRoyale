@@ -1,4 +1,5 @@
-﻿using CasinoRoyale.Windows.Pages;
+﻿using CasinoRoyale.classes;
+using CasinoRoyale.Windows.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using ToDoList.classes;
 
 namespace CasinoRoyale.windows.pages
 {
@@ -25,9 +27,11 @@ namespace CasinoRoyale.windows.pages
         private static MainWindow window;
         private readonly Random random = new();
         private readonly DispatcherTimer timer = new();
+        private static DatabaseOperator dbo = new();
         private int animationFrame;
         private int spinDuration;
         private int betAmount;
+        private string login;
 
         private readonly string[] symbols = new[]
         {
@@ -44,14 +48,15 @@ namespace CasinoRoyale.windows.pages
 
         private List<string> availableSymbols = new();
 
-        public Slot(MainWindow win)
+        public Slot(MainWindow win, string login)
         {
             InitializeComponent();
             window = win;
+            this.login = login;
             timer.Interval = TimeSpan.FromMilliseconds(160);
             timer.Tick += Timer_Tick;
             DisplayBeginingReels();
-
+            chips.Text = dbo.GetChips(login).ToString();
             availableSymbols.AddRange(symbols);
         }
 
@@ -96,18 +101,26 @@ namespace CasinoRoyale.windows.pages
                     _ => message
                 };
                 message += Environment.NewLine + "You won: ";
+                int win = 0;
                 if (mostFrequentSymbol.Key == symbols[1] || mostFrequentSymbol.Key == symbols[2] ||
                     mostFrequentSymbol.Key == symbols[3] || mostFrequentSymbol.Key == symbols[4] ||
                     mostFrequentSymbol.Key == symbols[5])
-                    betAmount *= 3;
+                    win = betAmount * 3;
                 else if (mostFrequentSymbol.Key == symbols[0] || mostFrequentSymbol.Key == symbols[7] ||
                     mostFrequentSymbol.Key == symbols[8])
-                    betAmount *= 5;
+                    win = betAmount * 5;
                 else
-                    betAmount *= 10;
-                //message += $"\nSymbol: {mostFrequentSymbol.Key}\nCount: {mostFrequentSymbol.Value}";
+                    win = betAmount * 10;
+
+                dbo.Add(login, 3, win - betAmount);
+                dbo.UpdateChips(login, win - betAmount);
+                chips.Text = dbo.GetChips(login).ToString();
             }
             MessageBox.Show(message += betAmount);
+            bet.IsEnabled = true;
+            btn_0.IsEnabled = true;
+            btn_1.IsEnabled = true;
+            btn_2.IsEnabled = false;
         }
 
         private void DisplayBeginingReels()
@@ -179,13 +192,15 @@ namespace CasinoRoyale.windows.pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
-                window.frame.NavigationService.Navigate(new Welcome(window));
+                window.frame.NavigationService.Navigate(new MainMenu(window, login));
             else if(btnName == "1")
             {
-                if (CheckBet())
+                if (CheckBet() && !CheckUserAccount())
                 {
                     betAmount = Convert.ToInt32(bet.Text);
+                    chips.Text = (Convert.ToInt32(chips.Text) - betAmount).ToString();
                     bet.IsEnabled = false;
+                    btn_0.IsEnabled = false;
                     btn_1.IsEnabled = false;
                     btn_2.IsEnabled = true;
                 }
@@ -212,6 +227,11 @@ namespace CasinoRoyale.windows.pages
                     check = false;
             }
             return check;
+        }
+
+        private Boolean CheckUserAccount()
+        {
+            return Convert.ToInt32(bet.Text) >= dbo.GetChips(login);
         }
     }
 }

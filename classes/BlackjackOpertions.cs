@@ -128,6 +128,12 @@ namespace CasinoRoyale.classes
             Console.WriteLine("User score: " + userScore);
             Console.WriteLine("Casino score: " + casinoScore);
 
+            if (userScore == 21 && userCards.Count == 2)
+                return 3;
+            
+            if (casinoScore == 21 && casinoCards.Count == 2)
+                return 0;
+            
             if (userScore > 21)
                 return 0;
 
@@ -136,12 +142,6 @@ namespace CasinoRoyale.classes
 
             if (userScore == casinoScore)
                 return 2;
-
-            if (userScore == 21 && userCards.Count == 2)
-                return 3;
-
-            if (casinoScore == 21 && casinoCards.Count == 2)
-                return 0;
 
             return userScore > casinoScore ? 1 : 0;
         }

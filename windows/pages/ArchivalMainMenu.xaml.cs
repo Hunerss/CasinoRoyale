@@ -30,17 +30,18 @@ namespace CasinoRoyale.windows.pages
 
         private void Navigation(object sender, RoutedEventArgs e)
         {
+            string login = "string";
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "1")
-                window.frame.NavigationService.Navigate(new Blackjack(window));
+                window.frame.NavigationService.Navigate(new Blackjack(window, login));
             else if (btnName == "2")
-                window.frame.NavigationService.Navigate(new Roulette(window));
+                window.frame.NavigationService.Navigate(new Roulette(window, login));
             else if (btnName == "3")
-                window.frame.NavigationService.Navigate(new Slot(window));
+                window.frame.NavigationService.Navigate(new Slot(window, login));
             else if (btnName == "4")
-                window.frame.NavigationService.Navigate(new Scores(window));
+                window.frame.NavigationService.Navigate(new Scores(window, login));
             else if (btnName == "5")
-                window.frame.NavigationService.Navigate(new AboutUs(window));
+                window.frame.NavigationService.Navigate(new AboutUs(window, login));
             else
                 Console.WriteLine("Welcome - error log - Navigation button number to bit - " + btnName);
         }

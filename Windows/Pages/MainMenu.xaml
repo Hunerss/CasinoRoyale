@@ -19,7 +19,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Casino Royale Main Menu</TextBlock>
-            <Button Name="btn_9" Grid.Row="2" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Sing out</Button>
+            <Button Name="btn_6" Grid.Row="2" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Sing out</Button>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -31,7 +31,7 @@
                 <Button Name="btn_1" Grid.Row="0" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Blackjack</Button>
                 <Button Name="btn_2" Grid.Row="1" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Roulette</Button>
                 <Button Name="btn_3" Grid.Row="2" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Slot Machine</Button>
-                <Button IsEnabled="False" Name="btn_4" Grid.Row="3" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Scores</Button>
+                <Button Name="btn_4" Grid.Row="3" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Scores</Button>
                 <Button Name="btn_5" Grid.Row="4" Click="Navigation" Style="{StaticResource BaseButtonStyle}">About us</Button>
             </Grid>
         </Grid>

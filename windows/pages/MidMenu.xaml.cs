@@ -1,9 +1,7 @@
-﻿using CasinoRoyale.Windows.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,12 +16,12 @@ using System.Windows.Shapes;
 namespace CasinoRoyale.windows.pages
 {
     /// <summary>
-    /// Logika interakcji dla klasy Menu.xaml
+    /// Logika interakcji dla klasy MidMenu.xaml
     /// </summary>
-    public partial class Menu : UserControl
+    public partial class MidMenu : UserControl
     {
         MainWindow window;
-        public Menu(MainWindow win)
+        public MidMenu(MainWindow win)
         {
             this.window = win;
             InitializeComponent();

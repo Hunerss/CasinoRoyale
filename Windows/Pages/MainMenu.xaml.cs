@@ -12,9 +12,11 @@ namespace CasinoRoyale.Windows.Pages
     public partial class MainMenu : UserControl
     {
         private static MainWindow window;
-        public MainMenu(MainWindow win)
+        private string login;
+        public MainMenu(MainWindow win, string login)
         {
             window = win;
+            this.login = login;
             InitializeComponent();
         }
 
@@ -22,15 +24,17 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "1")
-                window.frame.NavigationService.Navigate(new Blackjack(window));
+                window.frame.NavigationService.Navigate(new Blackjack(window, login));
             else if (btnName == "2")
-                window.frame.NavigationService.Navigate(new Roulette(window));
+                window.frame.NavigationService.Navigate(new Roulette(window, login));
             else if (btnName == "3")
-                window.frame.NavigationService.Navigate(new Slot(window));
+                window.frame.NavigationService.Navigate(new Slot(window, login));
             else if (btnName == "4")
-                window.frame.NavigationService.Navigate(new Scores(window));
+                window.frame.NavigationService.Navigate(new Scores(window, login));
             else if (btnName == "5")
-                window.frame.NavigationService.Navigate(new AboutUs(window));
+                window.frame.NavigationService.Navigate(new AboutUs(window, login));
+            else if (btnName == "6")
+                window.frame.NavigationService.Navigate(new Welcome(window));
             else
                 Console.WriteLine("Welcome - error log - Navigation button number to bit - " + btnName);
         }

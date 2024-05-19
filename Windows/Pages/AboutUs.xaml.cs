@@ -21,9 +21,11 @@ namespace CasinoRoyale.Windows.Pages
     public partial class AboutUs : UserControl
     {
         private static MainWindow window;
-        public AboutUs(MainWindow win)
+        private string login;
+        public AboutUs(MainWindow win, string login)
         {
             window = win;
+            this.login = login;
             InitializeComponent();
         }
 
@@ -31,7 +33,7 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
-                window.frame.NavigationService.Navigate(new Welcome(window));
+                window.frame.NavigationService.Navigate(new MainMenu(window, login));
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
         }

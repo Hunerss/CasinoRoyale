@@ -20,6 +20,19 @@
             </Grid.RowDefinitions>
             <TextBlock FontSize="40px" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">Best Players</TextBlock>
             <Button Name="btn_0" Grid.Row="2" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Go back</Button>
+            <ListBox Grid.Row="1" Name="EventListBox" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#60FFFFFF">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Center">
+                            <TextBlock FontSize="15px" Text="{Binding UserId}" FontWeight="Bold" TextAlignment="Center"/>
+                            <TextBlock FontSize="15px" Text="{Binding GameName}" FontWeight="Bold" TextAlignment="Center"/>
+                            <TextBlock FontSize="15px" Text="{Binding Amount}" FontWeight="Bold" TextAlignment="Center"/>
+                            <TextBlock FontSize="15px" Text="{Binding Date}" FontWeight="Bold" TextAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
         </Grid>
     </Grid>
 </UserControl>

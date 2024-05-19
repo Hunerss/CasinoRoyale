@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using ToDoList.classes;
 
 namespace CasinoRoyale.Windows.Pages
 {
@@ -16,6 +17,7 @@ namespace CasinoRoyale.Windows.Pages
     {
         private static MainWindow window;
         private static BlackjackOperations bj;
+        private static DatabaseOperator dbo = new();
 
         private static List<CardModel> cards;
         private static List<Card> userCards;
@@ -33,11 +35,16 @@ namespace CasinoRoyale.Windows.Pages
         private static int casino;
         private static int score;
 
-        public Blackjack(MainWindow win)
+        private string login;
+
+        public Blackjack(MainWindow win, string login)
         {
             InitializeComponent();
             SetStage();
             window = win;
+            this.login = login;
+
+            chips.Text = dbo.GetChips(login).ToString();
         }
 
         private void CasinoTimer_Tick(object? sender, EventArgs e)
@@ -67,6 +74,9 @@ namespace CasinoRoyale.Windows.Pages
                 MessageBox.Show("You " + outcome + Environment.NewLine +
                                 "Bet you made: " + bj.GetBet() + Environment.NewLine +
                                 "Bet after game: " + bj.InterpreteWin(score));
+                dbo.Add(login, 1, bj.InterpreteWin(score) - bj.GetBet());
+                dbo.UpdateChips(login, bj.InterpreteWin(score) - bj.GetBet());
+                chips.Text = dbo.GetChips(login).ToString();
                 bj = new();
                 btn_0.IsEnabled = true;
                 btn_1.IsEnabled = true;
@@ -159,6 +169,7 @@ namespace CasinoRoyale.Windows.Pages
 
         private void ClearCanvas()
         {
+            chips.Text = dbo.GetChips(login).ToString();
             Cnv.Children.Clear();
             CardModel card = new()
             {
@@ -174,12 +185,12 @@ namespace CasinoRoyale.Windows.Pages
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
             {
-                window.frame.NavigationService.Navigate(new Welcome(window));
+                window.frame.NavigationService.Navigate(new MainMenu(window, login));
 
             }
             else if (btnName == "1")
             {
-                if (CheckBet())
+                if (CheckBet() && !CheckUserAccount())
                 {
                     ClearCanvas();
                     btn_0.IsEnabled = false;
@@ -189,6 +200,7 @@ namespace CasinoRoyale.Windows.Pages
                     btn_4.IsEnabled = true;
                     bet.IsEnabled = false;
                     int betAmount = Convert.ToInt32(bet.Text);
+                    chips.Text = (Convert.ToInt32(chips.Text) - betAmount).ToString();
                     bj.SetBet(betAmount);
                     userCards = bj.GenerateHand(false);
                     casinoCards = bj.GenerateHand(true);
@@ -235,6 +247,11 @@ namespace CasinoRoyale.Windows.Pages
                     check = false;
             }
             return check;
+        }
+
+        private Boolean CheckUserAccount()
+        {
+            return Convert.ToInt32(bet.Text) >= dbo.GetChips(login);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CasinoRoyale.windows.pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,15 @@ namespace CasinoRoyale.Windows.Pages
     public partial class Licences : UserControl
     {
         private static MainWindow window;
-        public Licences(MainWindow win)
+        private string login;
+        private string password;
+        private DateTime date;
+        public Licences(MainWindow win, string login, string password, DateTime date)
         {
             window = win;
+            this.login = login;
+            this.password = password;
+            this.date = date;
             InitializeComponent();
         }
 
@@ -31,7 +38,7 @@ namespace CasinoRoyale.Windows.Pages
         {
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
-                window.frame.NavigationService.Navigate(new Welcome(window));
+                window.frame.NavigationService.Navigate(new Registration(window, login, password, date));
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
         }
