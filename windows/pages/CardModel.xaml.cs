@@ -17,11 +17,10 @@ namespace CasinoRoyale.windows.pages
         public Point StartPosition;
         public double TimeToTarget;
 
-        private static string BackgroundCardPath;
         private static string BackgroundReversPath = "pack://application:,,,/images/cards/reverse.jpg";
 
-        private static BitmapImage BackgroundReverse = new(new Uri(BackgroundReversPath, UriKind.Absolute));
-        private static BitmapImage BackgroundCard;
+        private BitmapImage BackgroundReverse = new(new Uri(BackgroundReversPath, UriKind.Absolute));
+        private BitmapImage BackgroundCard;
 
         public CardModel()
         {
@@ -56,7 +55,6 @@ namespace CasinoRoyale.windows.pages
         public void SetBackground(Card card)
         {
             string link = "pack://application:,,,/images/cards/" + card.Image;
-            BackgroundCardPath = link;
             BackgroundCard = new(new Uri(link, UriKind.Absolute));
             background.Source = BackgroundCard;
         }

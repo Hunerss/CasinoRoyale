@@ -217,7 +217,7 @@ namespace CasinoRoyale.Windows.Pages
             }
             else if (btnName == "4")
             {
-                ((CardModel)Cnv.Children[3]).SwichBackground();
+                ((CardModel)Cnv.Children[2]).SwichBackground();
                 score = bj.Game();
                 Console.WriteLine("Game scoer " + score);
                 casinoCards = bj.GetHand(true);

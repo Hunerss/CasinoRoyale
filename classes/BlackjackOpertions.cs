@@ -4,30 +4,17 @@ using System.Collections.Generic;
 
 namespace CasinoRoyale.classes
 {
-    class BlackjackOperations
+    class BlackjackOperations : Operations
     {
         protected List<Card> cards = new();
         protected List<Card> casinoCards = new();
         protected List<Card> userCards = new();
         protected int casinoScore = 0;
         protected int userScore = 0;
-        protected int bet = 0;
-        private readonly Random rnd = new();
-
 
         public BlackjackOperations()
         {
             cards = Basic.GenerateDeck();
-        }
-
-        public void SetBet(int bet)
-        {
-            this.bet = bet;
-        }
-
-        public int GetBet()
-        {
-            return this.bet;
         }
 
         public List<Card> GetHand(Boolean casino)
@@ -97,12 +84,6 @@ namespace CasinoRoyale.classes
                     score += 10;
                 else
                     score += card.Value;
-            }
-
-            while (score > 21 && aceCount > 0)
-            {
-                score -= 10;
-                aceCount--;
             }
 
             if (casino)
