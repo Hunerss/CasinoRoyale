@@ -22,7 +22,7 @@ namespace CasinoRoyale.Windows.Pages
     public partial class AboutUs : UserControl
     {
         private static MainWindow window;
-        private static DatabaseOperator dbo;
+        private static DatabaseOperator dbo = new();
         private string login;
         public AboutUs(MainWindow win, string login)
         {
