@@ -96,7 +96,6 @@ namespace CasinoRoyale.Windows.Pages
                     card.SetBackground(casinoCards[casino]);
                     if (casino == 0)
                     {
-                        Console.WriteLine("Techo kitty");
                         card.SwichBackground();
                     }
                     casino++;
@@ -201,10 +200,8 @@ namespace CasinoRoyale.Windows.Pages
                 Console.WriteLine(bj.GenerateCard(false).Id);
                 AddCard();
                 if (!bj.CheckUserScore())
-                {
                     btn_2.IsEnabled = false;
-                    btn_3.IsEnabled = false;
-                }
+                btn_3.IsEnabled = false;
             }
             else if (btnName == "3")
             {

@@ -28,12 +28,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="btn_0" Grid.Column="0" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Go Back</Button>
-            <TextBox Name="bet" Grid.Column="1" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalAlignment="Center">Bet</TextBox>
-            <Button Name="btn_1" Grid.Column="2" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Start</Button>
-            <Button IsEnabled="False" Name="btn_2" Grid.Column="3" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Hit</Button>
-            <Button IsEnabled="False" Name="btn_3" Grid.Column="4" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Double</Button>
-            <Button IsEnabled="False" Name="btn_4" Grid.Column="5" Width="100px" Height="40px" FontSize="25px" Click="Navigation">Stand</Button>
+            <Button Name="btn_0" Grid.Column="0" Width="100px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Go Back</Button>
+            <TextBox Name="bet" Grid.Column="1" Width="100px" Height="40px" FontSize="25px" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Bet</TextBox>
+            <Button Name="btn_1" Grid.Column="2" Width="100px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Start</Button>
+            <Button IsEnabled="False" Name="btn_2" Grid.Column="3" Width="100px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Hit</Button>
+            <Button IsEnabled="False" Name="btn_3" Grid.Column="4" Width="100px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Double</Button>
+            <Button IsEnabled="False" Name="btn_4" Grid.Column="5" Width="100px" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Stand</Button>
         </Grid>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>

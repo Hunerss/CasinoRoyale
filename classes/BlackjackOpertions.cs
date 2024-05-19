@@ -78,12 +78,18 @@ namespace CasinoRoyale.classes
                 if (card.Value == 14)
                 {
                     aceCount++;
-                    score += CalculateCardValue(card, score);
+                    score += 11;
                 }
                 else if (card.Value > 10)
                     score += 10;
                 else
                     score += card.Value;
+            }
+            Console.WriteLine("Test " + score);
+            while (score > 21 && aceCount > 0)
+            {
+                score -= 10;
+                aceCount--;
             }
 
             if (casino)
