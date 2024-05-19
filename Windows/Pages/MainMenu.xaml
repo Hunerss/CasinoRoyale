@@ -25,13 +25,13 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <!--<RowDefinition Height="*"/>-->
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Button Name="btn_1" Grid.Row="0" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Blackjack</Button>
                 <Button Name="btn_2" Grid.Row="1" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Roulette</Button>
                 <Button Name="btn_3" Grid.Row="2" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Slot Machine</Button>
-                <Button Name="btn_4" Grid.Row="3" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Scores</Button>
+                <!--<Button Name="btn_4" Grid.Row="3" Click="Navigation" Style="{StaticResource BaseButtonStyle}">Scores</Button>-->
                 <Button Name="btn_5" Grid.Row="4" Click="Navigation" Style="{StaticResource BaseButtonStyle}">About us</Button>
             </Grid>
         </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ToDoList.classes;
 
 namespace CasinoRoyale.Windows.Pages
 {
@@ -21,6 +22,7 @@ namespace CasinoRoyale.Windows.Pages
     public partial class AboutUs : UserControl
     {
         private static MainWindow window;
+        private static DatabaseOperator dbo;
         private string login;
         public AboutUs(MainWindow win, string login)
         {
@@ -34,6 +36,8 @@ namespace CasinoRoyale.Windows.Pages
             string btnName = ((Button)sender).Name[4].ToString();
             if (btnName == "0")
                 window.frame.NavigationService.Navigate(new MainMenu(window, login));
+            else if (btnName == "1")
+                dbo.UpdateChips(login, 2500);
             else
                 Console.WriteLine("Blackjack - error log - Navigation button number to bit - " + btnName);
         }
