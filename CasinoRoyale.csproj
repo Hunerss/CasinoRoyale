@@ -62,6 +62,7 @@
     <None Remove="images\cards\9h.jpg" />
     <None Remove="images\cards\9s.jpg" />
     <None Remove="images\cards\reverse.jpg" />
+    <None Remove="images\casino-icon.png" />
     <None Remove="images\cherries.png" />
     <None Remove="images\grape.png" />
     <None Remove="images\jackpot-machine.png" />
@@ -242,6 +243,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\cards\reverse.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\casino-icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\cherries.png" />

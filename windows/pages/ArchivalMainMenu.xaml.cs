@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CasinoRoyale.Windows.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace CasinoRoyale.windows.pages
     /// </summary>
     public partial class ArchivalMainMenu : UserControl
     {
-        public ArchivalMainMenu()
+        MainWindow window;
+        public ArchivalMainMenu(MainWindow win)
         {
+            this.window = win;
             InitializeComponent();
+        }
+
+        private void Navigation(object sender, RoutedEventArgs e)
+        {
+            string btnName = ((Button)sender).Name[4].ToString();
+            if (btnName == "1")
+                window.frame.NavigationService.Navigate(new Blackjack(window));
+            else if (btnName == "2")
+                window.frame.NavigationService.Navigate(new Roulette(window));
+            else if (btnName == "3")
+                window.frame.NavigationService.Navigate(new Slot(window));
+            else if (btnName == "4")
+                window.frame.NavigationService.Navigate(new Scores(window));
+            else if (btnName == "5")
+                window.frame.NavigationService.Navigate(new AboutUs(window));
+            else
+                Console.WriteLine("Welcome - error log - Navigation button number to bit - " + btnName);
         }
     }
 }
