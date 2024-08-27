@@ -38,6 +38,5 @@ Contributions are welcome! If you'd like to contribute to CasinoRoyale, please f
 License
 
 This project is licensed under the MIT License.
-Contact
 
 If you have any questions or suggestions about CasinoRoyale, feel free to contact us at tmp@example.com.
